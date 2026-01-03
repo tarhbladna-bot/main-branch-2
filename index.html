@@ -12,34 +12,55 @@
             padding: 0;
             text-align: center;
         }
+
         h1 {
             color: #d35400;
             margin: 30px 0;
         }
-        .products {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+
+        /* حاوية المنتجات */
+        .products-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
             padding: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
         }
-        .products img {
-            width: 200px;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 10px;
+
+        /* كل منتج */
+        .product {
             border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #fff;
+            padding: 10px;
             transition: transform 0.3s, box-shadow 0.3s;
         }
-        .products img:hover {
+
+        .product:hover {
             transform: translateY(-5px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
+
+        .product img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .product p {
+            margin: 10px 0 0;
+            font-size: 16px;
+            color: #333;
+        }
+
         .contact {
             font-size: 14px;
             color: #555;
-            margin-top: 10px;
+            margin-top: 5px;
         }
+
         .logo {
             width: 50px;
             height: 50px;
@@ -51,19 +72,43 @@
 
     <h1>منتجات طرح بلدنا</h1>
 
-    <!-- الصور الرئيسية للمنتجات -->
-    <div class="products">
-      <img src="images/product01.jpg.jpeg" alt="فول سوداني">
-      <img src="images/product02.jpg.jpeg" alt="فول سوداني">
-      <img src="images/product03.jpg.jpeg" alt="فول سوداني">
-      <img src="images/product04.jpg.jpeg" alt="فول سوداني">
-      <img src="images/product07.jpg.jpeg" alt="فول سوداني">
-      <img src="images/product08.jpg.jpeg" alt="فول سوداني">
-      <img src="images/product09.jpg.jpeg" alt="فول سوداني">
-      <img src="images/product1.jpg" alt="فول سوداني">
+    <!-- المنتجات -->
+    <div class="products-container">
+        <div class="product">
+            <img src="images/product01.jpg.jpeg" alt="فول سوداني">
+            <p>فول سوداني 01</p>
+        </div>
+        <div class="product">
+            <img src="images/product02.jpg.jpeg" alt="فول سوداني">
+            <p>فول سوداني 02</p>
+        </div>
+        <div class="product">
+            <img src="images/product03.jpg.jpeg" alt="فول سوداني">
+            <p>فول سوداني 03</p>
+        </div>
+        <div class="product">
+            <img src="images/product04.jpg.jpeg" alt="فول سوداني">
+            <p>فول سوداني 04</p>
+        </div>
+        <div class="product">
+            <img src="images/product07.jpg.jpeg" alt="فول سوداني">
+            <p>فول سوداني 07</p>
+        </div>
+        <div class="product">
+            <img src="images/product08.jpg.jpeg" alt="فول سوداني">
+            <p>فول سوداني 08</p>
+        </div>
+        <div class="product">
+            <img src="images/product09.jpg.jpeg" alt="فول سوداني">
+            <p>فول سوداني 09</p>
+        </div>
+        <div class="product">
+            <img src="images/product1.jpg" alt="فول سوداني">
+            <p>فول سوداني 1</p>
+        </div>
     </div>
 
-    <!-- معلومات التواصل -->
+    <!-- معلومات التواصل + شعار الشركة -->
     <div class="contact">
         تواصل: 01126773698
         <br>
