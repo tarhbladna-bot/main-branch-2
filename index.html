@@ -1,101 +1,74 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>طرح بلدنا — منتجات الفول السوداني</title>
-  <meta name="description" content="إنتاج محلي عالي الجودة من أفضل وألذ أصناف الفول السوداني الطازج. استعرض منتجاتنا وتواصل معنا مباشرة عبر واتساب." />
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
-  <style>
-    :root{--green:#2E7D32;--brown:#6D4C41;--gold:#D4AF37;--ivory:#FAF7F1;--text:#2B2B2B;}
-    *{box-sizing:border-box} body{margin:0;font-family:"Cairo", system-ui, -apple-system, "Segoe UI", sans-serif;background:var(--ivory);color:var(--text);} a{color:inherit;text-decoration:none} .container{max-width:1100px;margin:0 auto;padding:0 16px} header{background:#fff;border-bottom:1px solid #eee;position:sticky;top:0;z-index:10;} .topbar{display:flex;align-items:center;justify-content:space-between;padding:12px 0} .brand{display:flex;align-items:center;gap:10px} .logo{width:36px;height:36px;border:2px solid var(--green);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:var(--green);font-weight:800;} .brand h1{font-size:20px;margin:0;color:var(--green);font-weight:800} nav ul{display:flex;list-style:none;margin:0;padding:0;gap:16px} nav a{padding:8px 12px;border-radius:8px} nav a:hover{background:#f1f1f1} .cta{background:var(--green);color:#fff;padding:8px 12px;border-radius:8px;font-weight:600} .hero{background:linear-gradient(180deg,#fff, var(--ivory));border-bottom:1px solid #eee;} .hero-content{display:grid;grid-template-columns:1.2fr 1fr;gap:24px;padding:28px 0} .hero h2{margin:0 0 8px;font-size:28px;color:var(--brown);font-weight:800} .hero p{margin:0 0 16px;line-height:1.8} .hero .btn{display:inline-block;background:var(--gold);color:#1d1d1d;padding:10px 16px;border-radius:10px;font-weight:700} .card{background:#fff;border:1px solid #eee;border-radius:14px;overflow:hidden;display:flex;align-items:center;justify-content:center;min-height:220px;} .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px} .section{padding:28px 0} .section h3{margin:0 0 14px;font-size:22px;color:var(--brown);font-weight:800} .product{background:#fff;border:1px solid #eee;border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:8px;} .product .title{font-weight:800;color:var(--green)} .product .desc{color:#555} .product .badge{display:inline-block;background:#f7f4ea;color:#9c7f23;border:1px dashed #e2d6a2;padding:6px 10px;border-radius:8px;font-size:13px} .about, .contact, .blog{background:#fff;border:1px solid #eee;border-radius:14px;padding:16px} footer{margin-top:24px;background:#fff;border-top:1px solid #eee;color:#666;} footer .foot{padding:16px 0;display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center} .small{font-size:13px} @media(max-width:900px){.hero-content{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr)}} @media(max-width:560px){nav ul{gap:8px}.grid{grid-template-columns:1fr}} .ph{background:repeating-linear-gradient(-45deg,#f0ead6 0 14px,#eaddc5 14px 28px);color:#8a6d3b;font-weight:700;letter-spacing:0.5px;display:flex;align-items:center;justify-content:center;}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موقع طرح بلدنا</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fdf5e6;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        h1 {
+            color: #d35400;
+            margin: 30px 0;
+        }
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+        .products img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .products img:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .contact {
+            font-size: 14px;
+            color: #555;
+            margin-top: 10px;
+        }
+        .logo {
+            width: 50px;
+            height: 50px;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
-<header>
-<div class="container topbar">
-<div class="brand">
-<div class="logo">ط</div>
-<h1>طرح بلدنا</h1>
-</div>
-<nav>
-<ul>
-<li><a href="#home">الرئيسية</a></li>
-<li><a href="#products">المنتجات</a></li>
-<li><a href="#about">من نحن</a></li>
-<li><a href="#contact" class="cta">اتصل بنا</a></li>
-</ul>
-</nav>
-</div>
-</header>
-<main id="home" class="hero">
-<div class="container hero-content">
-<div>
-<h2>إنتاج محلي عالي الجودة من أفضل وألذ أصناف الفول السوداني الطازج</h2>
-<p>نختار الحبوب بعناية، ونلتزم بمعايير دقيقة في الفرز والتعبئة لضمان طعم ثابت وثقة مستمرة في كل عبوة.</p>
-<a href="#products" class="btn">استعرض المنتجات الآن</a>
-</div>
-<div class="card ph">بانر المنتجات (صورة مؤقتة)</div>
-</div>
-</main>
-<section id="products" class="section container">
-<h3>منتجاتنا</h3>
-<div class="grid">
-<div class="product">
-<div class="title">مفروك</div>
-<div class="desc">قوام ناعم متوازن، مثالي للوصفات المنزلية والمخبوزات.</div>
-<span class="badge">عبوات مقترحة: 250جم — 500جم — 1كجم</span>
-</div>
-<div class="product">
-<div class="title">مجروش</div>
-<div class="desc">حبيبات متجانسة تضيف قرمشة طبيعية للمأكولات.</div>
-<span class="badge">عبوات مقترحة: 250جم — 500جم — 1كجم</span>
-</div>
-<div class="product">
-<div class="title">بقشره</div>
-<div class="desc">انتقاء حبوب كاملة بقشرة سليمة، مذاق طازج ورائحة طبيعية.</div>
-<span class="badge">عبوات مقترحة: 500جم — 1كجم — 2كجم</span>
-</div>
-<div class="product">
-<div class="title">أبيض مقشر</div>
-<div class="desc">حبوب مقشرة بعناية، جاهزة للاستخدام المباشر.</div>
-<span class="badge">عبوات مقترحة: 250جم — 500جم — 1كجم</span>
-</div>
-</div>
-</section>
-<section id="about" class="section container">
-<h3>من نحن</h3>
-<div class="about">
-<p>طرح بلدنا علامة محلية تهتم بالتفاصيل الدقيقة من الحقل حتى العبوة. نعمل بمعايير واضحة لضمان واقعية الصور على العبوة، ودقة اللغة العربية، وثبات الجودة عبر كل دفعة إنتاج.</p>
-</div>
-</section>
-<section id="contact" class="section container">
-<h3>اتصل بنا</h3>
-<div class="contact">
-<p><strong>للتواصل والطلبات:</strong> <a href="https://wa.me/201020508423" target="_blank">01020508423 (واتساب)</a></p>
-<form onsubmit="event.preventDefault(); window.open('https://wa.me/201020508423?text=' + encodeURIComponent('مرحبا، أريد الاستفسار عن منتجات الفول السوداني'), '_blank');">
-<div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
-<input type="text" name="name" placeholder="الاسم" required style="padding:10px; border:1px solid #ddd; border-radius:8px;">
-<input type="tel" name="phone" placeholder="رقم الهاتف" required style="padding:10px; border:1px solid #ddd; border-radius:8px;">
-</div>
-<textarea name="message" placeholder="رسالتك" rows="4" required style="margin-top:12px; width:100%; padding:10px; border:1px solid #ddd; border-radius:8px;"></textarea>
-<button type="submit" class="btn" style="margin-top:12px;">إرسال عبر واتساب</button>
-</form>
-<p class="small" style="margin-top:8px;">العنوان: مركز منشأة القناطر، الجيزة، مصر</p>
-</div>
-</section>
-<section class="section container">
-<h3>المقالات</h3>
-<div class="blog">
-<p>فوائد الفول السوداني، وصفات بسيطة، وأخبار الإنتاج. قريبًا نشاركك قصص من أرض الواقع وصور حقيقية من خطوط التعبئة.</p>
-</div>
-</section>
-<footer>
-<div class="container foot">
-<div class="small">© طرح بلدنا — جميع الحقوق محفوظة</div>
-<div class="small">سياسة الخصوصية • الشروط والأحكام</div>
-</div>
-</footer>
+
+    <h1>منتجات طرح بلدنا</h1>
+
+    <!-- الصور الرئيسية للمنتجات -->
+    <div class="products">
+      <img src="images/product01.jpg.jpeg" alt="فول سوداني">
+      <img src="images/product02.jpg.jpeg" alt="فول سوداني">
+      <img src="images/product03.jpg.jpeg" alt="فول سوداني">
+      <img src="images/product04.jpg.jpeg" alt="فول سوداني">
+      <img src="images/product07.jpg.jpeg" alt="فول سوداني">
+      <img src="images/product08.jpg.jpeg" alt="فول سوداني">
+      <img src="images/product09.jpg.jpeg" alt="فول سوداني">
+      <img src="images/product1.jpg" alt="فول سوداني">
+    </div>
+
+    <!-- معلومات التواصل -->
+    <div class="contact">
+        تواصل: 01126773698
+        <br>
+        <img class="logo" src="images/logo.png" alt="شعار الشركة">
+    </div>
+
 </body>
 </html>
