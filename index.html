@@ -1,160 +1,159 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>موقع طرح بلدنا</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #e6f0fa; /* خلفية أزرق فاتح */
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-
-        h1 {
-            color: #1e3a8a; /* أزرق داكن */
-            margin: 30px 0;
-        }
-
-        /* حاوية المنتجات */
-        .products-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* كل منتج */
-        .product {
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            background-color: #fff;
-            padding: 10px;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .product:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-
-        .product img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 10px;
-        }
-
-        .product p {
-            margin: 10px 0 0;
-            font-size: 16px;
-            color: #1e3a8a;
-            font-weight: bold;
-        }
-
-        .contact {
-            font-size: 14px;
-            color: #1e3a8a;
-            margin-top: 20px;
-        }
-
-        .logo {
-            width: 60px;
-            height: 60px;
-            margin-top: 10px;
-        }
-
-        /* تصميم جميل للرقم */
-        .contact span {
-            display: block;
-            margin-top: 5px;
-            font-weight: bold;
-        }
-
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>طرح بلدنا للمحاصيل الزراعية</title>
+  <style>
+    body {font-family:"Noto Naskh Arabic",sans-serif; margin:0; background:#1b1b1b; color:#f0f0f0;}
+    header {background:#146356; padding:0;}
+    nav a {color:#fff; margin:5px 10px; text-decoration:none; font-weight:bold;}
+    section {padding:30px; max-width:1000px; margin:auto;}
+    h2 {color:#fff;}
+    .btn {display:inline-block; padding:12px 18px; margin:10px; border-radius:10px; text-decoration:none; font-weight:bold;}
+    .btn-primary {background:#146356; color:#fff;}
+    .btn-outline {border:2px solid #146356; color:#146356; background:transparent;}
+    .products {display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px;}
+    .card {background:#2a2a2a; border:1px solid #444; border-radius:10px; padding:15px;}
+    .card h3 {margin-top:0; color:#146356;}
+    .card img {width:100%; border-radius:10px; margin-bottom:10px;}
+    footer {background:#2a2a2a; text-align:center; padding:15px; margin-top:20px; color:#aaa;}
+    input, textarea {width:100%; padding:10px; margin:5px 0; border-radius:8px; border:1px solid #444; background:#1b1b1b; color:#f0f0f0;}
+  </style>
 </head>
 <body>
-
-    <h1>منتجات طرح بلدنا</h1>
-
-    <!-- المنتجات -->
-    <div class="products-container">
-        <div class="product">
-            <img src="images/product0.jpg.jpeg" alt="فول سوداني 0">
-            <p>فول سوداني 0</p>
-        </div>
-        <div class="product">
-            <img src="images/product00.jpg.jpeg" alt="فول سوداني 00">
-            <p>فول سوداني 00</p>
-        </div>
-        <div class="product">
-            <img src="images/product01.jpg.jpeg" alt="فول سوداني 01">
-            <p>فول سوداني 01</p>
-        </div>
-        <div class="product">
-            <img src="images/product02.jpg.jpeg" alt="فول سوداني 02">
-            <p>فول سوداني 02</p>
-        </div>
-        <div class="product">
-            <img src="images/product03.jpg.jpeg" alt="فول سوداني 03">
-            <p>فول سوداني 03</p>
-        </div>
-        <div class="product">
-            <img src="images/product04.jpg.jpeg" alt="فول سوداني 04">
-            <p>فول سوداني 04</p>
-        </div>
-        <div class="product">
-            <img src="images/product05.jpg.jpeg" alt="فول سوداني 05">
-            <p>فول سوداني 05</p>
-        </div>
-        <div class="product">
-            <img src="images/product08.jpg.jpeg" alt="فول سوداني 08">
-            <p>فول سوداني 08</p>
-        </div>
-        <div class="product">
-            <img src="images/product09.jpg.jpeg" alt="فول سوداني 09">
-            <p>فول سوداني 09</p>
-        </div>
-        <div class="product">
-            <img src="images/product1.jpg.jpeg" alt="فول سوداني 1">
-            <p>فول سوداني 1</p>
-        </div>
-        <div class="product">
-            <img src="images/product2.jpg.jpeg" alt="فول سوداني 2">
-            <p>فول سوداني 2</p>
-        </div>
-        <div class="product">
-            <img src="images/product22.jpg.jpeg" alt="فول سوداني 22">
-            <p>فول سوداني 22</p>
-        </div>
-        <div class="product">
-            <img src="images/product3.jpg.jpeg" alt="فول سوداني 3">
-            <p>فول سوداني 3</p>
-        </div>
-        <div class="product">
-            <img src="images/product4.jpg.jpeg" alt="فول سوداني 4">
-            <p>فول سوداني 4</p>
-        </div>
-        <div class="product">
-            <img src="images/product44.jpg.jpeg" alt="فول سوداني 44">
-            <p>فول سوداني 44</p>
-        </div>
-        <div class="product">
-            <img src="images/product5.jpg.jpeg" alt="فول سوداني 5">
-            <p>فول سوداني 5</p>
-        </div>
+  <header>
+    <div style="text-align:center; padding:20px 10px;">
+      <h1 style="margin:0; font-size:28px; color:#fff;">طرح بلدنا</h1>
+      <p style="margin:5px 0; color:#e0e0e0;">للمحاصيل الزراعية</p>
     </div>
+    <nav style="background:#104f45; display:flex; justify-content:center; flex-wrap:wrap; padding:10px;">
+      <a href="#products">المنتجات</a>
+      <a href="#cart">السلة</a>
+      <a href="#checkout">إتمام الطلب</a>
+      <a href="#about">عن الشركة</a>
+      <a href="#contact">تواصل</a>
+    </nav>
+  </header>
 
-    <!-- معلومات التواصل + شعار الشركة -->
-    <div class="contact">
-        تواصل: <span>01126773698</span>
-        <br>
-        <img class="logo" src="images/logo.png" alt="شعار الشركة">
-    </div>
+  <section class="hero">
+    <h2>فول سوداني — جملة وقطاعي</h2>
+    <p>شركة طرح بلدنا للمحاصيل الزراعية — أبو رواش، الجيزة، مصر</p>
+    <p>نوفر فول سوداني مقشر وبقشرة ومفروم ومجروش، ني ومحمص.</p>
+    <p>💵 السعر: عند الطلب — الدفع: كاش عند الاستلام</p>
+    <p>🚚 توريد داخل مصر 🌍 متاح التصدير خارج مصر حسب الكميات</p>
+    <a class="btn btn-primary" href="https://wa.me/201020508423" target="_blank">طلب عبر واتساب</a>
+  </section>
 
+  <!-- المنتجات -->
+  <section id="products" class="products">
+    <!-- هنا تضيف الكروت (بقشره، مقشر، مفروك، مجروش) -->
+  </section>
+
+  <!-- السلة -->
+  <section id="cart">
+    <h2>سلة الطلبات</h2>
+    <ul id="cartList"></ul>
+    <a class="btn btn-primary" href="#checkout">إتمام الطلب</a>
+    <a class="btn btn-outline" href="#" onclick="sendCartToWhatsApp()">إرسال عبر واتساب</a>
+  </section>
+
+  <!-- إتمام الطلب -->
+  <section id="checkout">
+    <h2>إتمام الطلب</h2>
+    <form id="orderForm">
+      <label>الاسم الكامل</label>
+      <input type="text" id="name" required>
+      <label>العنوان</label>
+      <textarea id="address" required></textarea>
+      <label>رقم الهاتف</label>
+      <input type="tel" id="phone" required>
+      <label>ملاحظات</label>
+      <textarea id="notes"></textarea>
+      <a class="btn btn-primary" href="#" onclick="sendOrder()">إرسال عبر واتساب</a>
+    </form>
+  </section>
+
+  <!-- عن الشركة -->
+  <section id="about">
+    <h2>عن الشركة</h2>
+    <p>تأسست شركة طرح بلدنا في أبو رواش – الجيزة – مصر، لتكون رائدة في مجال المحاصيل الزراعية،
+    مع تركيز خاص على توريد الفول السوداني بجميع أنواعه. نلتزم بتقديم منتجات عالية الجودة للسوق المحلي والتصدير.</p>
+  </section>
+
+  <!-- تواصل -->
+  <section id="contact">
+    <h2>تواصل معنا</h2>
+    <p>📞 هاتف: 01126773698 — 01020508423</p>
+    <p>💬 واتساب مباشر: <a class="btn btn-primary" href="https://wa.me/201020508423" target="_blank">اضغط هنا</a></p>
+  </section>
+
+  <footer>
+    © طرح بلدنا للمحاصيل الزراعية — أبو رواش، الجيزة — مصر
+  </footer>
+
+  <script>
+    let cart = [];
+
+    function addToCart(productName, quantity) {
+      if (!quantity || quantity <= 0) {
+        alert("من فضلك أدخل الكمية المطلوبة");
+        return;
+      }
+      const item = `${productName} — كمية: ${quantity} كجم — السعر: عند الطلب`;
+      cart.push(item);
+      localStorage.setItem('cartItems', JSON.stringify(cart));
+      alert(`تمت إضافة ${item} إلى السلة`);
+      displayCart();
+    }
+
+    function displayCart() {
+      const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+      const cartList = document.getElementById('cartList');
+      if (!cartList) return;
+      cartList.innerHTML = "";
+      if (cartItems.length === 0) {
+        cartList.innerHTML = "<p>السلة فارغة.</p>";
+      } else {
+        cartItems.forEach(item => {
+          const li = document.createElement('li');
+          li.textContent = item;
+          cartList.appendChild(li);
+        });
+      }
+    }
+
+    function sendCartToWhatsApp() {
+      const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+      if (cartItems.length === 0) {
+        alert("السلة فارغة");
+        return;
+      }
+      const message = `طلب جديد:%0A${cartItems.map(i => '- ' + i).join('%0A')}`;
+      window.open(`https://wa.me/201020508423?text=${message}`, '_blank');
+    }
+
+    function sendDirectWhatsApp(productName, quantity) {
+      if (!quantity || quantity <= 0) {
+        alert("من فضلك أدخل الكمية المطلوبة");
+        return;
+      }
+      const message = `طلب مباشر:%0A${productName}%0Aكمية: ${quantity} كجم%0Aالسعر: عند الطلب`;
+      window.open(`https://wa.me/201020508423?text=${message}`, '_blank');
+    }
+
+    function sendOrder() {
+      const name = document.getElementById('name').value;
+      const address = document.getElementById('address').value;
+      const phone = document.getElementById('phone').value;
+      const notes = document.getElementById('notes').value;
+      const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+      const message = `طلب جديد:%0Aالاسم: ${name}%0Aالعنوان: ${address}%0Aالهاتف: ${phone}%0Aالمنتجات:%0A${cartItems.map(i => '- ' + i).join('%0A')}%0Aملاحظات: ${notes}`;
+      window.open(`https://wa.me/201020508423?text=${message}`, '_blank');
+    }
+
+    displayCart();
+  </script>
 </body>
 </html>
