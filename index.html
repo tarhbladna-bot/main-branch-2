@@ -4,155 +4,251 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>طرح بلدنا — منتجات الفول السوداني</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+
   <style>
-    /* ====== Reset & Fonts ====== */
-    * { margin:0; padding:0; box-sizing:border-box; font-family: 'Cairo', sans-serif; }
-    body { background: #fff8f0; color: #222; line-height:1.6; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Cairo', sans-serif;
+    }
 
-    /* ====== Navbar ====== */
+    body {
+      background: #fff8f0;
+      color: #222;
+      line-height: 1.6;
+      }
+
+    /* ===== Navbar ===== */
     nav {
-      background: #ff4b2b; 
-      padding: 1rem 2rem; 
-      display:flex; 
-      justify-content:space-between; 
-      align-items:center;
-      position:sticky;
-      top:0;
-      z-index:100;
+      background: linear-gradient(90deg,#c31432,#240b36);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
-    nav h1 { color:#fff; font-size:1.8rem; }
-    nav ul { display:flex; list-style:none; gap:1.5rem; }
+
+    nav h1 {
+      color: #fff;
+      font-size: 1.8rem;
+    }
+nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
     nav ul li a {
-      color:#fff; 
-      text-decoration:none; 
-      font-weight:700;
-      transition:0.3s;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
     }
-    nav ul li a:hover { color:#ffe600; }
 
-    /* ====== Hero Section ====== */
+    nav ul li a:hover {
+      color: #f5af19;
+    }
+
+    /* ===== Hero ===== */
     .hero {
-      background: linear-gradient(90deg,#ff4b2b,#ffb347);
-      color:#fff; 
-  text-align:center; 
-      padding:5rem 2rem;
+      background: linear-gradient(90deg,#f12711,#f5af19);
+      color: #fff;
+      text-align: center; 
+      padding: 5rem 2rem;
     }
-    .hero h2 { font-size:2.5rem; margin-bottom:1rem; }
-    .hero p { font-size:1.2rem; }
 
-    /* ====== About Section ====== */
-    section { padding:4rem 2rem; }
-    .about { text-align:center; }
-    .about h2 { color:#ff4b2b; margin-bottom:1rem; }
-    .about p { max-width:700px; margin:0 auto; font-size:1.1rem; }
+    .hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
 
-    /* ====== Products Section ====== */
-    .products h2 { text-align:center; color:#ff4b2b; margin-bottom:3rem; }
+    section {
+      padding: 4rem 2rem;
+    }
+
+    /* ===== About ===== */
+    .about {
+      text-align: center;
+    }
+
+    .about h2 {
+      color: #c31432;
+      margin-bottom: 1rem;
+    } 
+    /* ===== Products ===== */
+    .products h2 {
+      text-align: center;
+      color: #c31432;
+      margin-bottom: 3rem;
+    }
+
     .product-grid {
-      display:grid; 
-      grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); 
-      gap:2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
     }
+
     .product-card {
-      background:#fff;
-      border-radius:15px;
-      box-shadow:0 4px 15px rgba(0,0,0,0.1);
-      overflow:hidden;
-      transition:0.3s;
-      text-align:center;
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+      overflow: hidden;
+      text-align: center;
+      transition: 0.3s; 
+      
     }
+
     .product-card:hover {
       transform: translateY(-10px);
-      box-shadow:0 8px 25px rgba(0,0,0,0.2);
     }
-    .product-card img { width:100%; height:200px; object-fit:cover; }
-    .product-card h3 { margin:1rem 0; color:#ff4b2b; }
-    .product-card button {
-      background:#ff4b2b; color:#fff; border:none; padding:0.7rem 1.2rem; margin-bottom:1rem; cursor:pointer;
-      border-radius:8px; font-weight:700; transition:0.3s;
-    }
-    .product-card button:hover { background:#ff6e50; }
-/* ====== Contact Section ====== */
-    .contact { background:#ffe600; padding:4rem 2rem; text-align:center; border-radius:20px; }
-    .contact h2 { color:#ff4b2b; margin-bottom:2rem; }
-    .contact p { margin-bottom:1rem; font-weight:700; }
-    .contact a {
-      display:inline-block; background:#ff4b2b; color:#fff; padding:0.8rem 1.5rem; border-radius:10px; font-weight:700;
-      text-decoration:none; transition:0.3s;
-    }
-    .contact a:hover { background:#ff6e50; }
 
-    /* ====== Footer ====== */
+    .product-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .product-card h3 {
+      margin: 1rem 0;
+      color: #c31432;
+    }
+
+    .product-card button {
+      background: #c31432;
+      color: #fff;
+      border: none; 
+    padding: 0.7rem 1.2rem;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .product-card button:hover {
+      background: #f12711;
+    }
+
+    /* ===== Contact ===== */
+    .contact {
+      background: #f5af19;
+      text-align: center;
+      border-radius: 20px;
+    }
+
+    .contact h2 {
+      color: #c31432;
+      margin-bottom: 2rem; 
+    }
+
+    .contact a {
+      display: inline-block;
+      background: #c31432;
+      color: #fff;
+      padding: 0.8rem 1.5rem;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    /* ===== Footer ===== */
     footer {
-      text-align:center; padding:2rem;
-      background:#222; color:#fff;
+      background: #222;
+      color: #fff;
+      text-align: center;
+      padding: 2rem;
+    } 
+    /* ===== WhatsApp Floating Button ===== */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25d366;
+      color: #fff;
+      padding: 15px 20px;
+      border-radius: 50px;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      z-index: 999;
+    }
+
+    .whatsapp-float:hover {
+      background: #1ebe5d;
+    } 
     }
   </style>
 </head>
-<body>  <!-- ====== Navbar ====== -->
-  <nav>
-    <h1>طرح بلدنا</h1>
-    <ul>
-      <li><a href="#about">عن الشركة</a></li>
-      <li><a href="#products">منتجاتنا</a></li>
-      <li><a href="#contact">تواصل معنا</a></li>
-    </ul>
-  </nav>
 
-  <!-- ====== Hero ====== -->
-  <section class="hero">
-    <h2>أفضل منتجات الفول السوداني</h2>
-    <p>جودة عالية، اختيار دقيق، وخبرة 15 سنة في أرض الواقع</p>
-  </section>
+<body>
 
-  <!-- ====== About ====== -->
+<nav>
+  <h1>طرح بلدنا</h1>
+  <ul>
+    <li><a href="#about">عن الشركة</a></li>
+    <li><a href="#products">منتجاتنا</a></li>
+    <li><a href="#contact">تواصل</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <h2>أفضل منتجات الفول السوداني</h2>
+  <p>جودة عالية • اختيار دقيق • خبرة 15 سنة</p>
+</section> 
   <section id="about" class="about">
-    <h2>عن طرح بلدنا</h2> p>شركة طرح بلدنا متخصصة في تقديم أفضل منتجات الفول السوداني بجودة عالية، خبرة واسعة في أرض الواقع، ونحرص دائمًا على اختيار المنتجات بعناية وفرزها بعناية لتقديم الأفضل لعملائنا.</p>
-  </section>
+  <h2>عن طرح بلدنا</h2>
+  <p>
+    شركة طرح بلدنا متخصصة في الفول السوداني،
+    فرز يدوي وخبرة طويلة في السوق المصري.
+  </p>
+</section>
 
-  <!-- ====== Products ====== -->
-  <section id="products" class="products">
-    <h2>منتجاتنا</h2>
-    <div class="product-grid">
-      <div class="product-card">
-        <img src="images/product01.jpg" alt="منتج 1">
-        <h3>منتج 1</h3>
-        <button onclick="window.location.href='https://wa.me/201126773698'">تواصل عبر واتساب</button>
-      </div>
-      <div class="product-card">
-        <img src="images/product02.jpg" alt="منتج 2">
-        <h3>منتج 2</h3>
-        <button onclick="window.location.href='https://wa.me/201126773698'">تواصل عبر واتساب</button>
-      </div>
-      <div class="product-card">
-        <img src="images/product03.jpg" alt="منتج 3">
-        <button onclick="window.location.href='https://wa.me/201126773698'">تواصل عبر واتساب</button>
-      </div>
-      <div class="product-card">
-        <img src="images/product02.jpg" alt="منتج 2">
-        <h3>منتج 2</h3>
-        <button onclick="window.location.href='https://wa.me/201126773698'">تواصل عبر واتساب</button>
-      </div>
-      <div class="product-card">
-        <img src="images/product03.jpg" alt="منتج 3">
-        <h3>منتج 3</h3>
-        <button onclick="window.location.href='https://wa.me/201126773698'">تواصل عبر واتساب</button>
-      </div>
-      <!-- أضف باقي المنتجات بنفس الشكل -->
-    </div>
-  </section> <!-- ====== Contact ====== -->
-  <section id="contact" class="contact">
-    <h2>تواصل معنا</h2>
-    <p>واتساب: 01126773698</p>
-    <p>واتساب: 01020508423</p>
-    <a href="https://wa.me/201126773698">راسلنا الآن</a>
-  </section>
+<section id="products" class="products">
+  <h2>منتجاتنا</h2>
+  <div class="product-grid" id="productsGrid"></div>
+</section>
 
-  <!-- ====== Footer ====== -->
+<section id="contact" class="contact">
+  <h2>تواصل معنا</h2>
+  <p>📞 01126773698</p>
+  <p>📞 01020508423</p>
+  <a href="https://wa.me/201126773698">راسلنا الآن</a>
+</section> 
   <footer>
-    © 2026 طرح بلدنا - جميع الحقوق محفوظة
-  </footer>
+  © 2026 طرح بلدنا — جميع الحقوق محفوظة
+</footer>
+
+<!-- WhatsApp Floating -->
+<a href="https://wa.me/201126773698" class="whatsapp-float" target="_blank">
+  واتساب
+</a>
+
+<script>
+  const images = [
+    "product01.jpg",
+    "product02.jpg",
+    "product03.jpg",
+    "product04.jpg",
+    "product05.jpg",
+    "product06.jpg"
+  ]; 
+  const grid = document.getElementById("productsGrid");
+
+  images.forEach((img, index) => {
+    grid.innerHTML += `
+      <div class="product-card">
+        <img src="images/${img}">
+        <h3>منتج فول سوداني ${index + 1}</h3>
+        <button onclick="window.open('https://wa.me/201126773698')">
+          تواصل واتساب
+        </button>
+      </div>
+    `;
+  });
+</script>
 
 </body>
-</html>
+</html> 
