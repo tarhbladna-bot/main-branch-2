@@ -17,8 +17,8 @@ nav{
   border-bottom:1px solid #d4af37;
   display:flex;justify-content:space-between;
   padding:15px 25px;z-index:999
-  }
-nav h1{margin:0;color:#d4af37}
+}
+  nav h1{margin:0;color:#d4af37}
 nav button{
   background:#d4af37;border:none;
   padding:6px 14px;font-weight:bold;cursor:pointer
@@ -37,6 +37,7 @@ section{padding:100px 20px;text-align:center}
 .card{
   background:#111;border:1px solid #d4af37;
   border-radius:12px;padding:15px
+}
   }
 .card img{
   width:100%;height:180px;
@@ -47,7 +48,7 @@ section{padding:100px 20px;text-align:center}
 .card button{
   background:#d4af37;
   border:none;padding:10px 15px;
-  font-weight:bold;cursor:pointer
+  font-weight:bold;cursor:pointer;width:100%
 }
 
 .contact{background:#111;border-top:1px solid #d4af37}
@@ -58,124 +59,109 @@ section{padding:100px 20px;text-align:center}
   padding:14px 18px;border-radius:50px;
   text-decoration:none;font-weight:bold;
   z-index:9999
-  }
-
-.cart{
-  position:fixed;right:0;top:0;
-  background:#000;color:#d4af37;
-  width:300px;height:100%;
-  padding:20px;display:none;
-  border-left:1px solid #d4af37;
-  z-index:9999
 }
-.cart input,.cart select{
-  width:100%;margin:8px 0;padding:6px
-}
-.cart button{
-  width:100%;padding:10px;
-  background:#d4af37;border:none;
-  font-weight:bold;cursor:pointer
-}
-</style>
+  </style>
 </head>
+
 <body>
 
 <nav>
-<h1>طرح بلدنا</h1>
-<div>
-<button onclick="toggleLang()">AR / EN</button>
-<button onclick="openCart()">🛒</button>
-</div>
+  <h1>طرح بلدنا</h1>
+  <div>
+    <button onclick="toggleLang()">AR / EN</button>
+  </div>
 </nav>
 
 <section class="hero">
-<h2 data-ar="منتجات فول سوداني عالية الجودة" data-en="High Quality Peanut Products">
-منتجات فول سوداني عالية الجودة
-</h2>
-<p data-ar="خبرة 15 سنة في أرض الواقع" data-en="15 Years of Experience">
-خبرة 15 سنة في أرض الواقع
-</p>
-</section>
+  <h2 data-ar="منتجات فول سوداني عالية الجودة"
+      data-en="High Quality Peanut Products">
+    منتجات فول سوداني عالية الجودة
+  </h2>
+  <p data-ar="خبرة 15 سنة في أرض الواقع"
+     data-en="15 Years of Experience">
+    خبرة 15 سنة في أرض الواقع
+  </p>
+  </section>
 
 <section>
-<h2 data-ar="منتجاتنا" data-en="Our Products
+  <h2 data-ar="منتجاتنا" data-en="Our Products">منتجاتنا</h2>
+
   <div class="products-grid">
-  <div class="card">
-    <img src="images/product01.jpg">
-    <h3 data-ar="فول سوداني مقشر" data-en="Shelled Peanut">فول سوداني مقشر</h3>
-    <button onclick="addProduct('فول سوداني مقشر')">اطلب عرض سعر</button>
-  </div>
 
-  <div class="card">
-    <img src="images/product02.jpg">
-    <h3 data-ar="فول سوداني بقشرة" data-en="Peanut in Shell">فول سوداني بقشرة</h3>
-    <button onclick="addProduct('فول سوداني بقشرة')">اطلب عرض سعر</button>
-  </div>
+    <div class="card">
+      <img src="images/product01.jpg">
+      <h3 data-ar="فول سوداني مقشر" data-en="Shelled Peanut">
+        فول سوداني مقشر
+      </h3>
+      <button onclick="orderNow('فول سوداني مقشر')">
+        اطلب عرض سعر
+      </button>
+    </div>
 
-  <div class="card">
-    <img src="images/product03.jpg">
-    <h3 data-ar="فول سوداني مجروش" data-en="Crushed Peanut">فول سوداني مجروش</h3>
-    <button onclick="addProduct('فول سوداني مجروش')">اطلب عرض سعر</button>
+    <div class="card">
+      <img src="images/product02.jpg">
+      <h3 data-ar="فول سوداني بقشرة" data-en="Peanut in Shell">
+        فول سوداني بقشرة
+        </h3>
+      <button onclick="orderNow('فول سوداني بقشرة')">
+        اطلب عرض سعر
+      </button>
+    </div>
+
+    <div class="card">
+      <img src="images/product03.jpg">
+      <h3 data-ar="فول سوداني مجروش" data-en="Crushed Peanut">
+        فول سوداني مجروش
+      </h3>
+      <button onclick="orderNow('فول سوداني مجروش')">
+        اطلب عرض سعر
+      </button>
+    </div>
+
   </div>
-</div>
 </section>
 <section class="contact">
-<h2 data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</h2>
-<p>📞 01020508423</p>
-<p data-ar="الدفع عند الاستلام" data-en="Cash on Delivery">الدفع عند الاستلام</p>
+  <h2 data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</h2>
+  <p>📞 01020508423</p>
+  <p data-ar="الدفع عند الاستلام" data-en="Cash on Delivery">
+    الدفع عند الاستلام
+  </p>
 </section>
 
-<a class="whatsapp-float" href="https://wa.me/201020508423" target="_blank">
-💬 واتساب
+<a class="whatsapp-float"
+   href="https://wa.me/201020508423"
+   target="_blank">
+  💬 واتساب الطلبات
 </a>
-
-<div class="cart" id="cart">
-<h3>طلب</h3>
-<input id="name" placeholder="الاسم">
-<input id="qty" placeholder="الكمية">
-<select id="type">
-<option>ني</option>
-<option>محمص</option>
-</select>
-<select id="market">
-<option>جملة</option>
-<option>قطاعي</option>
-</select>
-<select id="pack">
-<option>شيكارة</option>
-<option>كرتونة</option>
-</select>
-<button onclick="sendOrder()">إرسال الطلب</button>
-</div>
 
 <script>
 let lang="ar";
 function toggleLang(){
-  lang = lang==="ar"?"en":"ar";
+  lang = lang==="ar" ? "en" : "ar";
   document.querySelectorAll("[data-ar]").forEach(el=>{
     el.innerText = el.getAttribute("data-"+lang);
   });
+  
 }
 
-let currentProduct="";
-function addProduct(p){
-  currentProduct=p;
-  openCart();
+function orderNow(product){
+  const msg = `
+طلب عرض سعر
+----------------
+المنتج: ${product}
+الكمية:
+النوع: ني / محمص
+جملة / قطاعي:
+التعبئة: شيكارة / كرتونة
+الاسم:
+العنوان:
+الدفع: عند الاستلام
+`;
+  window.open(
+    "https://wa.me/201020508423?text=" + encodeURIComponent(msg),
+    "_blank"
+  );
   }
-function openCart(){
-  document.getElementById("cart").style.display="block";
-}
-function sendOrder(){
-  let msg=`طلب جديد
-المنتج: ${currentProduct}
-الاسم: ${name.value}
-الكمية: ${qty.value}
-النوع: ${type.value}
-جملة/قطاعي: ${market.value}
-التعبئة: ${pack.value}
-الدفع: عند الاستلام`;
-  window.open("https://wa.me/201020508423?text="+encodeURIComponent(msg));
-}
 </script>
 
 </body>
