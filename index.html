@@ -229,5 +229,31 @@ s.classList.add("show");
 });
 });
 </script>
+  <script>
+function sendOrder() {
+  var name = document.getElementById("name").value;
+  var qty = document.getElementById("qty").value;
+  var type = document.getElementById("type").value;
+  var market = document.getElementById("market").value;
+  var pack = document.getElementById("pack").value;
+
+  if (name === "" || qty === "") {
+    alert("من فضلك اكتب الاسم والكمية");
+    return;
+  }
+var message =
+    "طلب عرض سعر%0A" +
+    "الاسم: " + name + "%0A" +
+    "الكمية: " + qty + "%0A" +
+    "النوع: " + type + "%0A" +
+    "السوق: " + market + "%0A" +
+    "التعبئة: " + pack;
+
+  var phone = "201126773698"; // رقم الواتساب
+  var url = "https://wa.me/" + phone + "?text=" + message;
+
+  window.open(url, "_blank");
+}
+</script> 
 </body>
 </html>
