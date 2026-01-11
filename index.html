@@ -12,7 +12,6 @@ font-family:'Cairo',sans-serif;
 background:#0a0a0a;
 color:#fff;
 }
-/* ===== الهيدر ===== */
 header{
 background:#111;
 padding:15px 25px;
@@ -32,7 +31,6 @@ border:2px solid #ff6600;
 border-radius:8px;
 background:#0d1b2a;
 }
-/* ===== أيقونات الهيدر ===== */
 .header-icons{
 display:flex;
 gap:18px;
@@ -65,8 +63,6 @@ transform:translateY(-2px) scale(1.15);
 }
 .icon-label{margin-top:6px;transition:.3s;}
 .icon-item:hover .icon-label{color:#ff6600;}
-
-/* ===== زر تبديل اللغة ===== */
 .lang-toggle{
 position:fixed;
 top:20px;
@@ -80,8 +76,6 @@ z-index:999;
 .lang-toggle:hover{
 background:linear-gradient(135deg,#0d1b2a,#ff6600);
 }
-
-/* ===== المنتجات ===== */
 .products{
 display:flex;
 flex-wrap:wrap;
@@ -104,8 +98,6 @@ cursor:pointer;
 transition:opacity .3s;
 }
 .product h2{color:#ff8800;margin:10px 0 5px}
-
-/* ===== إدخالات ===== */
 .controls{
 display:flex;
 gap:6px;
@@ -119,8 +111,6 @@ border-radius:8px;
 border:none;
 text-align:center;
 }
-
-/* ===== معرض الصور ===== */
 .product-gallery{
 display:flex;
 justify-content:center;
@@ -137,8 +127,6 @@ border:2px solid transparent;
 .product-gallery img.selected{
 border-color:#ff6600;
 }
-
-/* ===== السلة ===== */
 .cart{
 position:fixed;
 left:20px;
@@ -167,8 +155,6 @@ background:#0d1b2a;
 color:#fff;
 cursor:pointer;
 }
-
-/* ===== Lightbox ===== */
 .lightbox{
 position:fixed;
 top:0;left:0;
@@ -184,8 +170,6 @@ max-width:90%;
 max-height:90%;
 border-radius:15px;
 }
-
-/* ===== الفوتر ===== */
 .footer-icons{
 display:flex;
 justify-content:center;
@@ -292,7 +276,6 @@ flex-wrap:wrap;
 
 </div>
 
-<!-- السلة -->
 <div class="cart" id="cart">
 <h3>سلة الطلب</h3>
 <ul id="items"></ul>
@@ -300,12 +283,10 @@ flex-wrap:wrap;
 <button onclick="clearCart()">تفريغ</button>
 </div>
 
-<!-- Lightbox -->
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
 <img id="lightbox-img">
 </div>
 
-<!-- الفوتر -->
 <div class="footer-icons">
 <div class="footer-item"><p class="ft-ar">🛒 السلة</p><p class="ft-en" style="display:none">🛒 Cart</p></div>
 <div class="footer-item"><p class="ft-ar">📦 المنتجات</p><p class="ft-en" style="display:none">📦 Products</p></div>
@@ -320,8 +301,10 @@ let currentLang='ar';
 
 function add(btn,name){
 let product = btn.closest('.product');
-let qty = product.querySelector('input[type=number]').value || 'غير محدد';
-let price = product.querySelectorAll('input')[1].value || 'حسب الاتفاق';
+let qty = product.querySelector('input[type=number]').value;
+let price = product.querySelectorAll('input')[1].value;
+if(!qty){qty='غير محدد';}
+if(!price){price='حسب الاتفاق';}
 let img = product.querySelector('.main-img').src;
 let msgAr = product.dataset.msgAr;
 let msgEn = product.dataset.msgEn;
