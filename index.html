@@ -27,7 +27,14 @@ position:sticky;
 top:0;
 z-index:1000;
 }
-header h1{color:#0d1b2a;margin:0}
+header h1{
+color:#fff;               
+margin:0;
+padding:6px 12px;
+border:2px solid #ff6600; /* الحواف البرتقالية */
+border-radius:8px;
+background:#0d1b2a;       
+}
 
 /* ===== أيقونات الهيدر ===== */
 .header-icons{
@@ -441,6 +448,11 @@ el.classList.add('selected');
 function exportCart(){
 if(cart.length===0){alert('السلة فارغة');return;}
 alert(cart.join('\n'));
+}
+
+/* ===== دالة من نحن ===== */
+function openAbout(){
+alert("شركة طرح بلدنا\nمتخصصة في بيع الفول السوداني بأنواعه.\nللتواصل: 01020508423");
 }
 </script>
 
