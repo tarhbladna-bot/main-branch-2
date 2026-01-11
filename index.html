@@ -15,11 +15,66 @@ background:#0a0a0a;
 color:#fff;
 }
 
+/* ===== الهيدر ===== */
+header{
+background:#111;
+padding:15px 25px;
+border-bottom:2px solid #0d1b2a;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:sticky;
+top:0;
+z-index:1000;
+}
+header h1{
+color:#fff;
+margin:0;
+padding:6px 12px;
+border:2px solid #ff6600;
+border-radius:8px;
+background:#0d1b2a;
+}
+
+/* ===== أيقونات الهيدر ===== */
+.header-icons{
+display:flex;
+gap:18px;
+}
+.icon-item{
+display:flex;
+flex-direction:column;
+align-items:center;
+text-decoration:none;
+color:#fff;
+font-size:12px;
+}
+.icon-circle{
+width:46px;
+height:46px;
+background:#0d1b2a;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:20px;
+color:#fff;
+box-shadow:0 6px 15px rgba(13,27,42,.6);
+transition:transform .3s, background .3s;
+}
+.icon-item:hover .icon-circle{
+background:linear-gradient(135deg, #0d1b2a, #ff6600);
+color:#fff;
+transform:translateY(-2px) scale(1.15);
+}
+.icon-label{margin-top:6px;transition:.3s;}
+.icon-item:hover .icon-label{color:#ff6600;}
+
 /* ===== زر تبديل اللغة ===== */
 .lang-toggle{
 position:fixed;
 top:20px;
-right:20px;
+right:90px;
 padding:10px 15px;
 background:#0d1b2a;
 border-radius:10px;
@@ -151,6 +206,27 @@ flex-wrap:wrap;
 
 <body>
 
+<header>
+<h1>طرح بلدنا</h1>
+<div class="header-icons">
+<a class="icon-item" href="javascript:void(0)" onclick="toggleCart()">
+<div class="icon-circle">🛒</div><div class="icon-label">السلة</div>
+</a>
+<a class="icon-item" href="#products">
+<div class="icon-circle">📦</div><div class="icon-label">المنتجات</div>
+</a>
+<a class="icon-item" href="javascript:void(0)" onclick="openAbout()">
+<div class="icon-circle">ℹ</div><div class="icon-label">من نحن</div>
+</a>
+<a class="icon-item" href="mailto:tarhbladna@gmail.com">
+<div class="icon-circle">✉</div><div class="icon-label">الإيميل</div>
+</a>
+<a class="icon-item" href="https://wa.me/201126773698" target="_blank">
+<div class="icon-circle">📞</div><div class="icon-label">واتساب</div>
+</a>
+</div>
+</header>
+
 <!-- زر تبديل اللغة -->
 <div class="lang-toggle" onclick="toggleLang()">English</div>
 
@@ -197,7 +273,7 @@ flex-wrap:wrap;
 </div>
 
 <!-- السلة -->
-<div class="cart">
+<div class="cart" id="cart">
 <h3>سلة الطلب</h3>
 <ul id="items"></ul>
 <button onclick="send()">اطلب واتساب</button>
@@ -215,7 +291,7 @@ flex-wrap:wrap;
 <div class="footer-item"><p class="ft-ar">📦 المنتجات</p><p class="ft-en" style="display:none">📦 Products</p></div>
 <div class="footer-item"><p class="ft-ar">ℹ من نحن</p><p class="ft-en" style="display:none">ℹ About Us</p></div>
 <div class="footer-item"><p class="ft-ar">✉ tarhbladna@gmail.com</p><p class="ft-en" style="display:none">✉ tarhbladna@gmail.com</p></div>
-<div class="footer-item"><p class="ft-ar">📞 واتساب 01020508423</p><p class="ft-en" style="display:none">📞 WhatsApp 01020508423</p></div>
+<div class="footer-item"><p class="ft-ar">📞 01020508423 / 01126773698</p><p class="ft-en" style="display:none">📞 01020508423 / 01126773698</p></div>
 </div>
 
 <script>
@@ -290,7 +366,6 @@ function closeLightbox(){
 document.getElementById('lightbox').style.display='none';
 }
 
-/* ===== تبديل اللغة ===== */
 function toggleLang(){
 let ar = document.querySelectorAll('.ft-ar, .prod-name');
 let en = document.querySelectorAll('.ft-en');
@@ -305,8 +380,6 @@ en.forEach(e=>e.style.display='none');
 document.querySelector('.lang-toggle').textContent='English';
 currentLang='ar';
 }
-
-// تبديل أسماء المنتجات
 document.querySelectorAll('.product').forEach(p=>{
 if(currentLang==='en'){
 p.querySelector('.prod-name').textContent=p.dataset.nameEn;
@@ -314,6 +387,14 @@ p.querySelector('.prod-name').textContent=p.dataset.nameEn;
 p.querySelector('.prod-name').textContent=p.dataset.nameAr;
 }
 });
+}
+
+function toggleCart(){
+document.getElementById('cart').classList.toggle('active');
+}
+
+function openAbout(){
+alert("شركة طرح بلدنا\nخبرة وجودة في بيع الفول السوداني بأنواعه\nللتواصل: 01020508423 / 01126773698");
 }
 </script>
 
