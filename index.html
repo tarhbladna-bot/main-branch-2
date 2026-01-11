@@ -11,9 +11,8 @@
 body{
 margin:0;
 font-family:'Cairo',sans-serif;
-background:#0a0a0a;
+background:#0a0a0a; /* خلفية سوداء داكنة */
 color:#fff;
-transition: background 0.3s;
 }
 
 /* ===== الهيدر ===== */
@@ -32,7 +31,7 @@ header h1{
 color:#fff;               
 margin:0;
 padding:6px 12px;
-border:2px solid #ff6600;
+border:2px solid #ff6600; /* الحواف البرتقالية */
 border-radius:8px;
 background:#0d1b2a;       
 }
@@ -102,7 +101,7 @@ transform:scale(1.08) translateY(-3px);
 box-shadow:0 12px 25px rgba(13,27,42,.7);
 }
 
-/* ===== أسماء أنواع الفول ===== */
+/* ===== أسماء أنواع الفول مع حركة عند hover ===== */
 .product h2{
 color:#ff8800;
 margin:10px 0 5px;
@@ -114,6 +113,7 @@ transform:translateY(-5px) scale(1.05);
 color:#ffaa33;
 }
 
+/* ===== باقي النصوص والزرار ===== */
 .product p{margin:0 0 10px}
 .product button{
 background:#0d1b2a;
@@ -153,7 +153,7 @@ border:2px solid #0d1b2a;
 transform:scale(1.1);
 }
 
-/* ===== السلة ===== */
+/* ===== السلة العائمة ===== */
 .cart-toggle{
 position:fixed;
 top:20px;
@@ -168,9 +168,11 @@ transition:transform .3s, background .3s;
 }
 .cart-toggle:hover{
 background:linear-gradient(135deg, #0d1b2a, #ff6600);
+color:#fff;
 transform:translateY(-3px) scale(1.08);
 }
 
+/* ===== السلة ===== */
 .cart{
 position:fixed;
 left:-320px;
@@ -201,6 +203,7 @@ transition:.3s;
 }
 .cart button:hover{
 background:linear-gradient(135deg, #0d1b2a, #ff6600);
+color:#fff;
 }
 
 /* ===== واتساب ===== */
@@ -219,7 +222,7 @@ font-size:28px;
 text-decoration:none;
 color:#fff;
 box-shadow:0 6px 20px rgba(13,27,42,.6);
-transition:.3s;
+transition:transform .3s, background .3s;
 z-index:1000;
 }
 .whatsapp:hover{
@@ -265,79 +268,18 @@ border-radius:15px;
 box-shadow:0 0 30px rgba(13,27,42,.5);
 }
 
-/* ===== الفوتر ===== */
+/* ===== فوتر ===== */
 .footer-icons{
 display:flex;
 justify-content:center;
 gap:25px;
 margin-top:30px;
 padding:20px;
-border-top:2px solid #ff6600;
+border-top:2px solid #0d1b2a;
 flex-wrap:wrap;
-background:#0d1b2a;
-border-radius:12px;
-box-shadow:0 4px 15px rgba(255,102,0,0.3);
 }
-.footer-item{
-text-align:center;
-font-size:14px;
-padding:10px;
-margin:5px;
-border:none;
-border-radius:0;
-}
+.footer-item{text-align:center;font-size:14px;}
 .footer-item p{margin:4px 0;}
-
-/* ===== Modal من نحن ===== */
-#aboutModal{
-display:none;
-position:fixed;
-top:0; left:0;
-width:100%; height:100%;
-background:rgba(0,0,0,0.85);
-justify-content:center;
-align-items:center;
-z-index:5000;
-opacity:0;
-transition:opacity 0.4s ease;
-}
-#aboutModal.show{
-display:flex;
-opacity:1;
-}
-#aboutContent{
-background:#111;
-padding:25px;
-border-radius:15px;
-text-align:center;
-max-width:400px;
-width:90%;
-border:2px solid #ff6600;
-transform: scale(0.7);
-transition: transform 0.4s ease;
-}
-#aboutModal.show #aboutContent{
-transform: scale(1);
-}
-#aboutContent img{
-max-width:120px;
-border-radius:12px;
-margin-bottom:15px;
-}
-#aboutContent button{
-margin-top:15px;
-padding:8px 15px;
-background:#0d1b2a;
-border:none;
-color:#fff;
-border-radius:12px;
-font-weight:bold;
-cursor:pointer;
-transition:.3s;
-}
-#aboutContent button:hover{
-background:linear-gradient(135deg, #0d1b2a, #ff6600);
-}
 </style>
 </head>
 
@@ -374,7 +316,55 @@ background:linear-gradient(135deg, #0d1b2a, #ff6600);
 </div>
 
 <div class="products">
-<!-- ضع منتجاتك هنا -->
+
+<!-- فول سوداني بقشره -->
+<div class="product">
+<img class="main-img" src="images/peanut-shell-1.jpg" onclick="openLightbox(this)">
+<h2>فول سوداني بقشره</h2>
+<p>السعر عند الطلب</p>
+<button onclick="add('فول سوداني بقشره')">أضف للسلة</button>
+<div class="product-gallery">
+<img src="images/peanut-shell-2.jpg" class="selected" onclick="changeMainImage(this)">
+<img src="images/peanut-shell-3.jpg" onclick="changeMainImage(this)">
+</div>
+</div>
+
+<!-- فول سوداني مقشر -->
+<div class="product">
+<img class="main-img" src="images/peanut-shelled-1.jpg" onclick="openLightbox(this)">
+<h2>فول سوداني مقشر</h2>
+<p>السعر عند الطلب</p>
+<button onclick="add('فول سوداني مقشر')">أضف للسلة</button>
+<div class="product-gallery">
+<img src="images/peanut-shelled-2.jpg" class="selected" onclick="changeMainImage(this)">
+<img src="images/peanut-shelled-3.jpg" onclick="changeMainImage(this)">
+</div>
+</div>
+
+<!-- فول سوداني مجروش -->
+<div class="product">
+<img class="main-img" src="images/peanut-crushed-1.jpg" onclick="openLightbox(this)">
+<h2>فول سوداني مجروش</h2>
+<p>السعر عند الطلب</p>
+<button onclick="add('فول سوداني مجروش')">أضف للسلة</button>
+<div class="product-gallery">
+<img src="images/peanut-crushed-2.jpg" class="selected" onclick="changeMainImage(this)">
+<img src="images/peanut-crushed-3.jpg" onclick="changeMainImage(this)">
+</div>
+</div>
+
+<!-- فول سوداني حلواني -->
+<div class="product">
+<img class="main-img" src="images/peanut-halawani-1.jpg" onclick="openLightbox(this)">
+<h2>فول سوداني حلواني</h2>
+<p>السعر عند الطلب</p>
+<button onclick="add('فول سوداني حلواني')">أضف للسلة</button>
+<div class="product-gallery">
+<img src="images/peanut-halawani-2.jpg" class="selected" onclick="changeMainImage(this)">
+<img src="images/peanut-halawani-3.jpg" onclick="changeMainImage(this)">
+</div>
+</div>
+
 </div>
 
 <a class="whatsapp" href="https://wa.me/201126773698" target="_blank">💬</a>
@@ -406,20 +396,14 @@ background:linear-gradient(135deg, #0d1b2a, #ff6600);
 </div>
 </div>
 
-<!-- ===== Modal من نحن ===== -->
-<div id="aboutModal">
-<div id="aboutContent">
-<img src="images/logo.png" alt="شعار طرح بلدنا">
-<p>شركة طرح بلدنا متخصصة في بيع الفول السوداني بأنواعه المختلفة.</p>
-<p>للتواصل: 01020508423</p>
-<button onclick="closeAbout()">إغلاق</button>
-</div>
-</div>
-
 <script>
 let cart=[];
 
-function add(item){cart.push(item);renderCart();}
+function add(item){
+cart.push(item);
+renderCart();
+}
+
 function renderCart(){
 let ul=document.getElementById('items');
 ul.innerHTML='';
@@ -430,26 +414,45 @@ ul.appendChild(li);
 });
 document.getElementById('footer-count').textContent=cart.length;
 }
-function clearCart(){cart=[];renderCart();}
-function toggleCart(){document.getElementById('cart').classList.toggle('active');}
+
+function clearCart(){
+cart=[];
+renderCart();
+}
+
+function toggleCart(){
+document.getElementById('cart').classList.toggle('active');
+}
+
 function send(){
 if(cart.length===0){alert('السلة فارغة');return;}
 let msg='طلب:\n'+cart.join('\n');
 window.open('https://wa.me/201126773698?text='+encodeURIComponent(msg),'_blank');
 }
-function openLightbox(el){document.getElementById('lightbox-img').src=el.src;document.getElementById('lightbox').style.display='flex';}
-function closeLightbox(){document.getElementById('lightbox').style.display='none';}
-function exportCart(){if(cart.length===0){alert('السلة فارغة');return;}alert(cart.join('\n'));}
 
-/* ===== Modal من نحن مع Fade In/Out ===== */
-function openAbout(){
-let modal=document.getElementById('aboutModal');
-modal.classList.add('show');
+function openLightbox(el){
+document.getElementById('lightbox-img').src=el.src;
+document.getElementById('lightbox').style.display='flex';
 }
-function closeAbout(){
-let modal=document.getElementById('aboutModal');
-modal.classList.remove('show');
-setTimeout(()=>{modal.style.display='none';},400);
+function closeLightbox(){
+document.getElementById('lightbox').style.display='none';
+}
+
+function changeMainImage(el){
+let product = el.closest('.product');
+product.querySelector('.main-img').src = el.src;
+product.querySelectorAll('.product-gallery img').forEach(img=>img.classList.remove('selected'));
+el.classList.add('selected');
+}
+
+function exportCart(){
+if(cart.length===0){alert('السلة فارغة');return;}
+alert(cart.join('\n'));
+}
+
+/* ===== دالة من نحن ===== */
+function openAbout(){
+alert("شركة طرح بلدنا\nمتخصصة في بيع الفول السوداني بأنواعه.\nللتواصل: 01020508423");
 }
 </script>
 
