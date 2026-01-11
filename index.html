@@ -90,10 +90,19 @@ transition:.4s;
 }
 .product img.main-img:hover{transform:scale(1.08)}
 
+/* ===== أسماء أنواع الفول مع حركة عند hover ===== */
 .product h2{
-color:#ff8800; /* لون جديد لعناوين أنواع الفول */
+color:#ff8800; /* لون العنوان */
 margin:10px 0 5px;
+transition:.3s;
+cursor:pointer;
 }
+.product h2:hover{
+transform:translateY(-5px) scale(1.05);
+color:#ffaa33; /* يمكن تغيير اللون قليلاً عند hover */
+}
+
+/* ===== باقي النصوص والزرار ===== */
 .product p{margin:0 0 10px}
 .product button{
 background:#0d1b2a;
