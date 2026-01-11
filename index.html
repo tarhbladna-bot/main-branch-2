@@ -11,7 +11,7 @@
 body{
 margin:0;
 font-family:'Cairo',sans-serif;
-background:#0a0a0a; /* خلفية سوداء داكنة */
+background:#0a0a0a;
 color:#fff;
 }
 
@@ -19,7 +19,7 @@ color:#fff;
 header{
 background:#111;
 padding:15px 25px;
-border-bottom:2px solid #0d1b2a; /* كحلي */
+border-bottom:2px solid #0d1b2a;
 display:flex;
 justify-content:space-between;
 align-items:center;
@@ -45,7 +45,7 @@ font-size:12px;
 .icon-circle{
 width:46px;
 height:46px;
-background:#0d1b2a; /* كحلي */
+background:#0d1b2a;
 border-radius:50%;
 display:flex;
 align-items:center;
@@ -87,19 +87,23 @@ width:100%;
 border-radius:12px;
 cursor:pointer;
 transition:.4s;
+box-shadow:0 4px 15px rgba(0,0,0,0.3);
 }
-.product img.main-img:hover{transform:scale(1.08)}
+.product img.main-img:hover{
+transform:scale(1.08) translateY(-3px);
+box-shadow:0 12px 25px rgba(13,27,42,.7);
+}
 
 /* ===== أسماء أنواع الفول مع حركة عند hover ===== */
 .product h2{
-color:#ff8800; /* لون العنوان */
+color:#ff8800;
 margin:10px 0 5px;
 transition:.3s;
 cursor:pointer;
 }
 .product h2:hover{
 transform:translateY(-5px) scale(1.05);
-color:#ffaa33; /* يمكن تغيير اللون قليلاً عند hover */
+color:#ffaa33;
 }
 
 /* ===== باقي النصوص والزرار ===== */
@@ -137,6 +141,9 @@ border:2px solid transparent;
 }
 .product-gallery img.selected{
 border:2px solid #0d1b2a;
+}
+.product-gallery img:hover{
+transform:scale(1.1);
 }
 
 /* ===== السلة ===== */
@@ -425,9 +432,7 @@ document.getElementById('lightbox').style.display='none';
 function changeMainImage(el){
 let product = el.closest('.product');
 product.querySelector('.main-img').src = el.src;
-// إزالة تحديد جميع الصور
 product.querySelectorAll('.product-gallery img').forEach(img=>img.classList.remove('selected'));
-// إضافة التحديد للصورة المضغوطة
 el.classList.add('selected');
 }
 
