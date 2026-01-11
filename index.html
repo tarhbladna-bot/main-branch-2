@@ -13,6 +13,7 @@ margin:0;
 font-family:'Cairo',sans-serif;
 background:#0a0a0a;
 color:#fff;
+transition: background 0.3s;
 }
 
 /* ===== الهيدر ===== */
@@ -281,9 +282,9 @@ box-shadow:0 4px 15px rgba(255,102,0,0.3);
 text-align:center;
 font-size:14px;
 padding:10px;
-border:2px solid #ff6600;
-border-radius:8px;
 margin:5px;
+border:none;
+border-radius:0;
 }
 .footer-item p{margin:4px 0;}
 
@@ -297,6 +298,12 @@ background:rgba(0,0,0,0.85);
 justify-content:center;
 align-items:center;
 z-index:5000;
+opacity:0;
+transition:opacity 0.4s ease;
+}
+#aboutModal.show{
+display:flex;
+opacity:1;
 }
 #aboutContent{
 background:#111;
@@ -306,6 +313,11 @@ text-align:center;
 max-width:400px;
 width:90%;
 border:2px solid #ff6600;
+transform: scale(0.7);
+transition: transform 0.4s ease;
+}
+#aboutModal.show #aboutContent{
+transform: scale(1);
 }
 #aboutContent img{
 max-width:120px;
@@ -362,7 +374,7 @@ background:linear-gradient(135deg, #0d1b2a, #ff6600);
 </div>
 
 <div class="products">
-<!-- هنا ضع المنتجات كما في السابق -->
+<!-- ضع منتجاتك هنا -->
 </div>
 
 <a class="whatsapp" href="https://wa.me/201126773698" target="_blank">💬</a>
@@ -407,11 +419,7 @@ background:linear-gradient(135deg, #0d1b2a, #ff6600);
 <script>
 let cart=[];
 
-function add(item){
-cart.push(item);
-renderCart();
-}
-
+function add(item){cart.push(item);renderCart();}
 function renderCart(){
 let ul=document.getElementById('items');
 ul.innerHTML='';
@@ -422,41 +430,26 @@ ul.appendChild(li);
 });
 document.getElementById('footer-count').textContent=cart.length;
 }
-
-function clearCart(){
-cart=[];
-renderCart();
-}
-
-function toggleCart(){
-document.getElementById('cart').classList.toggle('active');
-}
-
+function clearCart(){cart=[];renderCart();}
+function toggleCart(){document.getElementById('cart').classList.toggle('active');}
 function send(){
 if(cart.length===0){alert('السلة فارغة');return;}
 let msg='طلب:\n'+cart.join('\n');
 window.open('https://wa.me/201126773698?text='+encodeURIComponent(msg),'_blank');
 }
+function openLightbox(el){document.getElementById('lightbox-img').src=el.src;document.getElementById('lightbox').style.display='flex';}
+function closeLightbox(){document.getElementById('lightbox').style.display='none';}
+function exportCart(){if(cart.length===0){alert('السلة فارغة');return;}alert(cart.join('\n'));}
 
-function openLightbox(el){
-document.getElementById('lightbox-img').src=el.src;
-document.getElementById('lightbox').style.display='flex';
-}
-function closeLightbox(){
-document.getElementById('lightbox').style.display='none';
-}
-
-function exportCart(){
-if(cart.length===0){alert('السلة فارغة');return;}
-alert(cart.join('\n'));
-}
-
-/* ===== دوال Modal من نحن ===== */
+/* ===== Modal من نحن مع Fade In/Out ===== */
 function openAbout(){
-document.getElementById('aboutModal').style.display='flex';
+let modal=document.getElementById('aboutModal');
+modal.classList.add('show');
 }
 function closeAbout(){
-document.getElementById('aboutModal').style.display='none';
+let modal=document.getElementById('aboutModal');
+modal.classList.remove('show');
+setTimeout(()=>{modal.style.display='none';},400);
 }
 </script>
 
