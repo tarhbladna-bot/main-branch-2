@@ -4,9 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>طرح بلدنا | Tarh Baldna</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-
 <style>
 body{
 margin:0;
@@ -14,7 +12,6 @@ font-family:'Cairo',sans-serif;
 background:#0a0a0a;
 color:#fff;
 }
-
 /* ===== الهيدر ===== */
 header{
 background:#111;
@@ -35,7 +32,6 @@ border:2px solid #ff6600;
 border-radius:8px;
 background:#0d1b2a;
 }
-
 /* ===== أيقونات الهيدر ===== */
 .header-icons{
 display:flex;
@@ -203,7 +199,6 @@ flex-wrap:wrap;
 .footer-item p{margin:4px 0;}
 </style>
 </head>
-
 <body>
 
 <header>
@@ -227,23 +222,19 @@ flex-wrap:wrap;
 </div>
 </header>
 
-<!-- زر تبديل اللغة -->
 <div class="lang-toggle" onclick="toggleLang()">English</div>
 
-<div class="products">
+<div class="products" id="products">
 
-<!-- بقشره -->
+<!-- فول سوداني بقشره -->
 <div class="product" data-msg-ar="مناسب للتحميص والتجارة" data-msg-en="Ideal for roasting & trading" data-name-ar="فول سوداني بقشره" data-name-en="Peanut In Shell">
 <img class="main-img" src="images/peanut-shell-1.jpg" onclick="openLightbox(this)">
 <h2 class="prod-name">فول سوداني بقشره</h2>
-
 <div class="controls">
 <input type="number" placeholder="كمية" min="1">
 <input type="number" placeholder="سعر">
 </div>
-
 <button onclick="add(this,'Peanut In Shell')">أضف للسلة</button>
-
 <div class="product-gallery">
 <img src="images/peanut-shell-1.jpg" class="selected" onclick="changeMainImage(this)">
 <img src="images/peanut-shell-2.jpg" onclick="changeMainImage(this)">
@@ -251,22 +242,51 @@ flex-wrap:wrap;
 </div>
 </div>
 
-<!-- مقشر -->
+<!-- فول سوداني مقشر -->
 <div class="product" data-msg-ar="جاهز للتعبئة والتصدير" data-msg-en="Ready for packing & export" data-name-ar="فول سوداني مقشر" data-name-en="Shelled Peanut">
 <img class="main-img" src="images/peanut-shelled-1.jpg" onclick="openLightbox(this)">
 <h2 class="prod-name">فول سوداني مقشر</h2>
-
 <div class="controls">
 <input type="number" placeholder="كمية" min="1">
 <input type="number" placeholder="سعر">
 </div>
-
 <button onclick="add(this,'Shelled Peanut')">أضف للسلة</button>
-
 <div class="product-gallery">
 <img src="images/peanut-shelled-1.jpg" class="selected" onclick="changeMainImage(this)">
 <img src="images/peanut-shelled-2.jpg" onclick="changeMainImage(this)">
 <img src="images/peanut-shelled-3.jpg" onclick="changeMainImage(this)">
+</div>
+</div>
+
+<!-- فول سوداني مجروش -->
+<div class="product" data-msg-ar="مناسب للتحميص والتجارة" data-msg-en="Ideal for crushing & trading" data-name-ar="فول سوداني مجروش" data-name-en="Crushed Peanut">
+<img class="main-img" src="images/peanut-crushed-1.jpg" onclick="openLightbox(this)">
+<h2 class="prod-name">فول سوداني مجروش</h2>
+<div class="controls">
+<input type="number" placeholder="كمية" min="1">
+<input type="number" placeholder="سعر">
+</div>
+<button onclick="add(this,'Crushed Peanut')">أضف للسلة</button>
+<div class="product-gallery">
+<img src="images/peanut-crushed-1.jpg" class="selected" onclick="changeMainImage(this)">
+<img src="images/peanut-crushed-2.jpg" onclick="changeMainImage(this)">
+<img src="images/peanut-crushed-3.jpg" onclick="changeMainImage(this)">
+</div>
+</div>
+
+<!-- فول سوداني حلواني -->
+<div class="product" data-msg-ar="للاستهلاك الفوري والحلويات" data-msg-en="For immediate consumption & sweets" data-name-ar="فول سوداني حلواني" data-name-en="Halawani Peanut">
+<img class="main-img" src="images/peanut-halawani-1.jpg" onclick="openLightbox(this)">
+<h2 class="prod-name">فول سوداني حلواني</h2>
+<div class="controls">
+<input type="number" placeholder="كمية" min="1">
+<input type="number" placeholder="سعر">
+</div>
+<button onclick="add(this,'Halawani Peanut')">أضف للسلة</button>
+<div class="product-gallery">
+<img src="images/peanut-halawani-1.jpg" class="selected" onclick="changeMainImage(this)">
+<img src="images/peanut-halawani-2.jpg" onclick="changeMainImage(this)">
+<img src="images/peanut-halawani-3.jpg" onclick="changeMainImage(this)">
 </div>
 </div>
 
@@ -305,10 +325,7 @@ let price = product.querySelectorAll('input')[1].value || 'حسب الاتفاق
 let img = product.querySelector('.main-img').src;
 let msgAr = product.dataset.msgAr;
 let msgEn = product.dataset.msgEn;
-
-cart.push({
-name,qty,price,img,msgAr,msgEn
-});
+cart.push({name,qty,price,img,msgAr,msgEn});
 renderCart();
 }
 
@@ -317,11 +334,7 @@ let ul=document.getElementById('items');
 ul.innerHTML='';
 cart.forEach(i=>{
 let li=document.createElement('li');
-li.innerHTML=`
-${i.name}<br>
-كمية: ${i.qty}<br>
-سعر: ${i.price}
-`;
+li.innerHTML=`${i.name}<br>كمية: ${i.qty}<br>سعر: ${i.price}`;
 ul.appendChild(li);
 });
 }
@@ -332,16 +345,7 @@ function send(){
 if(cart.length===0){alert('السلة فارغة');return;}
 let msg=`طلب جديد من موقع طرح بلدنا\n\n`;
 cart.forEach((i,n)=>{
-msg+=`${n+1}) ${i.name}\n`;
-msg+=`الكمية: ${i.qty}\n`;
-msg+=`السعر: ${i.price}\n`;
-msg+=`ملاحظة: ${i.msgAr}\n`;
-msg+=`Image: ${i.img}\n\n`;
-msg+=`EN:\n`;
-msg+=`${i.name}\n`;
-msg+=`Qty: ${i.qty}\n`;
-msg+=`Price: ${i.price}\n`;
-msg+=`${i.msgEn}\n\n`;
+msg+=`${n+1}) ${i.name}\nالكمية: ${i.qty}\nالسعر: ${i.price}\nملاحظة: ${i.msgAr}\nImage: ${i.img}\n\nEN:\n${i.name}\nQty: ${i.qty}\nPrice: ${i.price}\n${i.msgEn}\n\n`;
 });
 window.open('https://wa.me/201126773698?text='+encodeURIComponent(msg),'_blank');
 }
@@ -350,10 +354,7 @@ function changeMainImage(el){
 let p=el.closest('.product');
 let main=p.querySelector('.main-img');
 main.style.opacity=0;
-setTimeout(()=>{
-main.src=el.src;
-main.style.opacity=1;
-},200);
+setTimeout(()=>{main.src=el.src;main.style.opacity=1;},200);
 p.querySelectorAll('.product-gallery img').forEach(i=>i.classList.remove('selected'));
 el.classList.add('selected');
 }
@@ -381,11 +382,7 @@ document.querySelector('.lang-toggle').textContent='English';
 currentLang='ar';
 }
 document.querySelectorAll('.product').forEach(p=>{
-if(currentLang==='en'){
-p.querySelector('.prod-name').textContent=p.dataset.nameEn;
-}else{
-p.querySelector('.prod-name').textContent=p.dataset.nameAr;
-}
+p.querySelector('.prod-name').textContent=currentLang==='en'?p.dataset.nameEn:p.dataset.nameAr;
 });
 }
 
