@@ -8,6 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
+*{box-sizing:border-box}
 body{
   margin:0;
   font-family:'Cairo',sans-serif;
@@ -15,60 +16,78 @@ body{
   color:#fff;
 }
 
-/* ================= HEADER ================= */
+/* ===== HEADER ===== */
 header{
   background:#111;
-  padding:15px 25px;
-  border-bottom:2px solid #0d1b2a;
-  display:flex;
-  justify-content:center;
-  align-items:center;
+  padding:14px;
+  border-bottom:2px solid #ff6600;
+  text-align:center;
   position:sticky;
   top:0;
   z-index:1000;
 }
 header h1{
   margin:0;
-  padding:6px 14px;
+  display:inline-block;
+  padding:6px 16px;
   border:2px solid #ff6600;
   border-radius:10px;
-  background:#0d1b2a;
 }
 
-/* ================= ثلاث نقاط ================= */
+/* ===== ثلاث نقاط ===== */
 .dots-menu{
   position:fixed;
-  top:18px;
+  top:15px;
   left:15px;
   z-index:3000;
 }
 .dots-menu span{
-  font-size:34px;
+  font-size:32px;
   cursor:pointer;
 }
-
-/* ================= Dropdown ================= */
 .dropdown{
   display:none;
-  position:absolute;
-  left:0;
   background:#111;
   border:2px solid #ff6600;
-  border-radius:14px;
-  min-width:200px;
-  overflow:hidden;
+  border-radius:12px;
+  margin-top:6px;
 }
 .dropdown div{
-  padding:12px;
+  padding:12px 16px;
   cursor:pointer;
   border-bottom:1px solid #222;
 }
+.dropdown div:last-child{border-bottom:none}
 .dropdown div:hover{
   background:#ff6600;
   color:#000;
 }
 
-/* ================= PRODUCTS ================= */
+/* ===== روابط أعلى الصفحة يمين ===== */
+.social-top{
+  position:fixed;
+  top:90px;
+  right:10px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  z-index:3000;
+}
+.social-top a{
+  background:#111;
+  border:2px solid #ff6600;
+  color:#fff;
+  padding:8px 12px;
+  border-radius:12px;
+  text-decoration:none;
+  font-size:14px;
+}
+.social-top a:hover{
+  background:#ff6600;
+  color:#000;
+}
+
+/* ===== PRODUCTS ===== */
 .products{
   display:flex;
   flex-wrap:wrap;
@@ -82,19 +101,17 @@ header h1{
   border-radius:18px;
   padding:15px;
   text-align:center;
-  box-shadow:0 6px 20px rgba(13,27,42,.4);
 }
 .product img.main-img{
   width:100%;
   border-radius:12px;
   cursor:pointer;
 }
-.product h2{
-  color:#ff8800;
-}
+.product h3{color:#ff8800}
 .controls{
   display:flex;
   gap:6px;
+  margin-bottom:6px;
 }
 .controls input{
   width:50%;
@@ -102,124 +119,119 @@ header h1{
   border-radius:8px;
   border:none;
 }
+.product button{
+  width:100%;
+  padding:8px;
+  background:#0d1b2a;
+  color:#fff;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+}
 .product-gallery{
   display:flex;
-  justify-content:center;
   gap:6px;
+  justify-content:center;
   margin-top:8px;
 }
 .product-gallery img{
   width:55px;
   height:55px;
-  border-radius:8px;
+  border-radius:6px;
   cursor:pointer;
   border:2px solid transparent;
 }
 .product-gallery img.selected{
   border-color:#ff6600;
 }
-.product button{
-  margin-top:8px;
-  padding:8px;
-  width:100%;
-  border:none;
-  border-radius:10px;
-  background:#0d1b2a;
-  color:#fff;
-  cursor:pointer;
-}
 
-/* ================= CART ================= */
+/* ===== CART ===== */
 .cart{
   position:fixed;
-  right:20px;
-  top:90px;
+  right:15px;
+  top:100px;
   width:280px;
   background:#111;
+  border:2px solid #ff6600;
   border-radius:15px;
   padding:15px;
   display:none;
   z-index:2000;
 }
-.cart.active{display:block;}
-.cart ul{
-  list-style:none;
-  padding:0;
-}
+.cart.active{display:block}
+.cart ul{list-style:none;padding:0}
 .cart li{
   background:#222;
-  margin-bottom:6px;
   padding:6px;
-  border-radius:8px;
-  font-size:13px;
+  border-radius:6px;
+  margin-bottom:6px;
 }
 .cart button{
   width:100%;
   margin-top:6px;
   padding:8px;
   border:none;
-  border-radius:10px;
+  border-radius:8px;
   background:#ff6600;
-  cursor:pointer;
+  color:#000;
 }
 
-/* ================= LIGHTBOX ================= */
-.lightbox{
+/* ===== FLOAT BUTTONS ===== */
+.whatsapp-float{
   position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,.9);
-  display:none;
+  bottom:20px;
+  right:20px;
+  width:60px;
+  height:60px;
+  background:#25D366;
+  border-radius:50%;
+  display:flex;
   justify-content:center;
   align-items:center;
+  font-size:30px;
+  cursor:pointer;
   z-index:4000;
 }
-.lightbox img{
-  max-width:90%;
-  max-height:90%;
-  border-radius:15px;
-}
-
-/* ================= MODALS ================= */
-.modal{
-  display:none;
+.export-float{
   position:fixed;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  background:#111;
-  border:2px solid #ff6600;
-  border-radius:15px;
-  padding:20px;
-  width:90%;
-  max-width:420px;
-  z-index:5000;
-}
-.modal h3{color:#ff6600;}
-.close{
-  position:absolute;
-  top:8px;
-  right:12px;
+  bottom:90px;
+  right:20px;
+  width:60px;
+  height:60px;
+  background:#ff6600;
+  border-radius:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
   font-size:22px;
   cursor:pointer;
+  z-index:4000;
 }
-.modal textarea{
-  width:100%;
-  background:#222;
-  color:#fff;
-  border:1px solid #ff6600;
-  border-radius:8px;
-  padding:8px;
+
+/* ===== LIGHTBOX ===== */
+.lightbox{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.9);
+  justify-content:center;
+  align-items:center;
+  z-index:5000;
 }
-.modal button{
-  margin-top:10px;
-  padding:10px;
-  width:100%;
-  background:#ff6600;
-  border:none;
-  cursor:pointer;
+.lightbox img{max-width:90%;max-height:90%}
+
+/* ===== FOOTER ===== */
+footer{
+  margin-top:40px;
+  padding:20px;
+  text-align:center;
+  background:#111;
+  border-top:2px solid #ff6600;
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:768px){
+  .social-top{bottom:160px;top:auto}
 }
 </style>
 </head>
@@ -227,157 +239,121 @@ header h1{
 <body>
 
 <header>
-<h1>طرح بلدنا</h1>
+  <h1>طرح بلدنا</h1>
 </header>
 
 <!-- ثلاث نقاط -->
 <div class="dots-menu">
   <span onclick="toggleMenu()">⋮</span>
   <div class="dropdown" id="menu">
-    <div onclick="openModal('cats')">الفئات</div>
-    <div onclick="openModal('about')">عن الشركة</div>
-    <div onclick="openModal('help')">المساعدة</div>
-    <div onclick="openModal('question')">عندك سؤال؟</div>
-    <div onclick="toggleCart()">🛒 السلة</div>
+    <div onclick="alert('بقشره – مقشر – مجروش – حلواني')">الفئات</div>
+    <div onclick="alert('شركة طرح بلدنا لتجارة الفول السوداني')">عن الشركة</div>
+    <div onclick="alert('للمساعدة تواصل عبر واتساب')">المساعدة</div>
+    <div onclick="ask()">عندك سؤال؟</div>
   </div>
+</div>
+
+<!-- روابط -->
+<div class="social-top">
+  <a href="https://wa.me/201126773698" target="_blank">📞 واتساب</a>
+  <a href="https://www.instagram.com/efyos820?igsh=MXhxam40dGpweW12ag==" target="_blank">📸 إنستجرام</a>
+  <a href="mailto:tarhbladna@gmail.com">✉️ إيميل</a>
 </div>
 
 <!-- PRODUCTS -->
 <div class="products">
-
-<!-- بقشره -->
-<div class="product">
-<img src="images/peanut-shell-1.jpg" class="main-img" onclick="openLightbox(this)">
-<h2>فول سوداني بقشره</h2>
-<div class="controls">
-<input type="number" placeholder="كمية">
-<input type="text" placeholder="سعر">
-</div>
-<button onclick="add(this,'فول سوداني بقشره')">أضف للسلة</button>
-<div class="product-gallery">
-<img src="images/peanut-shell-1.jpg" class="selected" onclick="changeMainImage(this)">
-<img src="images/peanut-shell-2.jpg" onclick="changeMainImage(this)">
-<img src="images/peanut-shell-3.jpg" onclick="changeMainImage(this)">
-</div>
-</div>
-
-<!-- مقشر -->
-<div class="product">
-<img src="images/peanut-shelled-1.jpg" class="main-img" onclick="openLightbox(this)">
-<h2>فول سوداني مقشر</h2>
-<div class="controls">
-<input type="number" placeholder="كمية">
-<input type="text" placeholder="سعر">
-</div>
-<button onclick="add(this,'فول سوداني مقشر')">أضف للسلة</button>
-<div class="product-gallery">
-<img src="images/peanut-shelled-1.jpg" class="selected" onclick="changeMainImage(this)">
-<img src="images/peanut-shelled-2.jpg" onclick="changeMainImage(this)">
-<img src="images/peanut-shelled-3.jpg" onclick="changeMainImage(this)">
-</div>
-</div>
-
-<!-- مجروش -->
-<div class="product">
-<img src="images/peanut-crushed-1.jpg" class="main-img" onclick="openLightbox(this)">
-<h2>فول سوداني مجروش</h2>
-<div class="controls">
-<input type="number" placeholder="كمية">
-<input type="text" placeholder="سعر">
-</div>
-<button onclick="add(this,'فول سوداني مجروش')">أضف للسلة</button>
-<div class="product-gallery">
-<img src="images/peanut-crushed-1.jpg" class="selected" onclick="changeMainImage(this)">
-<img src="images/peanut-crushed-2.jpg" onclick="changeMainImage(this)">
-<img src="images/peanut-crushed-3.jpg" onclick="changeMainImage(this)">
-</div>
-</div>
-
-<!-- حلواني -->
-<div class="product">
-<img src="images/peanut-halawani-1.jpg" class="main-img" onclick="openLightbox(this)">
-<h2>فول سوداني حلواني</h2>
-<div class="controls">
-<input type="number" placeholder="كمية">
-<input type="text" placeholder="سعر">
-</div>
-<button onclick="add(this,'فول سوداني حلواني')">أضف للسلة</button>
-<div class="product-gallery">
-<img src="images/peanut-halawani-1.jpg" class="selected" onclick="changeMainImage(this)">
-<img src="images/peanut-halawani-2.jpg" onclick="changeMainImage(this)">
-<img src="images/peanut-halawani-3.jpg" onclick="changeMainImage(this)">
-</div>
-</div>
-
+  <div class="product">
+    <img class="main-img" src="images/peanut-shell-1.jpg" onclick="openLightbox(this)">
+    <h3>فول سوداني بقشره</h3>
+    <div class="controls">
+      <input placeholder="كمية">
+      <input placeholder="سعر">
+    </div>
+    <button onclick="add(this,'بقشره')">أضف للسلة</button>
+    <div class="product-gallery">
+      <img src="images/peanut-shell-1.jpg" class="selected" onclick="changeMain(this)">
+      <img src="images/peanut-shell-2.jpg" onclick="changeMain(this)">
+      <img src="images/peanut-shell-3.jpg" onclick="changeMain(this)">
+      <img src="images/peanut-shell-4.jpg" onclick="changeMain(this)">
+    </div>
+  </div>
 </div>
 
 <!-- CART -->
 <div class="cart" id="cart">
-<h3>سلة الطلب</h3>
-<ul id="items"></ul>
-<button onclick="send()">طلب واتساب</button>
-<button onclick="clearCart()">تفريغ</button>
+  <h3>سلة الطلب</h3>
+  <ul id="items"></ul>
+  <button onclick="send()">طلب واتساب</button>
+  <button onclick="exportCSV()">Export</button>
 </div>
+
+<!-- FLOAT -->
+<div class="whatsapp-float" onclick="openWhats()">📞</div>
+<div class="export-float" onclick="exportCSV()">⬇</div>
 
 <!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox" onclick="closeLightbox()">
-<img id="lightbox-img">
+<div class="lightbox" id="lightbox" onclick="this.style.display='none'">
+  <img id="lightbox-img">
 </div>
 
-<!-- MODALS -->
-<div class="modal" id="cats"><span class="close" onclick="closeModal('cats')">×</span><h3>الفئات</h3><p>بقشره – مقشر – مجروش – حلواني</p></div>
-<div class="modal" id="about"><span class="close" onclick="closeModal('about')">×</span><h3>عن الشركة</h3><p>طرح بلدنا لتجارة وتصدير الفول السوداني.</p></div>
-<div class="modal" id="help"><span class="close" onclick="closeModal('help')">×</span><h3>المساعدة</h3><p>اختر المنتج ثم أرسل الطلب عبر واتساب.</p></div>
-<div class="modal" id="question"><span class="close" onclick="closeModal('question')">×</span><h3>عندك سؤال؟</h3><textarea id="q"></textarea><button onclick="sendQ()">إرسال</button></div>
+<footer>
+  <p>طرح بلدنا – تجارة وتصدير الفول السوداني</p>
+  <p>📞 01020508423 / 01126773698</p>
+  <p>✉ tarhbladna@gmail.com</p>
+</footer>
 
 <script>
 let cart=[];
 
 function toggleMenu(){
- let m=document.getElementById('menu');
- m.style.display=m.style.display==='block'?'none':'block';
+  let m=document.getElementById('menu');
+  m.style.display=m.style.display==='block'?'none':'block';
 }
-function openModal(id){document.getElementById(id).style.display='block';toggleMenu();}
-function closeModal(id){document.getElementById(id).style.display='none';}
-function toggleCart(){document.getElementById('cart').classList.toggle('active');toggleMenu();}
-
 function add(btn,name){
- let p=btn.closest('.product');
- let qty=p.querySelectorAll('input')[0].value||'غير محدد';
- let price=p.querySelectorAll('input')[1].value||'حسب الاتفاق';
- cart.push({name,qty,price});
- render();
+  let p=btn.closest('.product');
+  let qty=p.querySelectorAll('input')[0].value||'غير محدد';
+  let price=p.querySelectorAll('input')[1].value||'حسب الاتفاق';
+  cart.push({name,qty,price});
+  render();
 }
 function render(){
- let ul=document.getElementById('items');
- ul.innerHTML='';
- cart.forEach(i=>{
-  let li=document.createElement('li');
-  li.innerHTML=`${i.name}<br>كمية: ${i.qty}<br>سعر: ${i.price}`;
-  ul.appendChild(li);
- });
+  let ul=document.getElementById('items');
+  ul.innerHTML='';
+  cart.forEach(i=>{
+    let li=document.createElement('li');
+    li.textContent=`${i.name} - ${i.qty} - ${i.price}`;
+    ul.appendChild(li);
+  });
+  document.getElementById('cart').classList.add('active');
 }
-function clearCart(){cart=[];render();}
 function send(){
- let msg='طلب من موقع طرح بلدنا\n';
- cart.forEach((i,n)=>{msg+=`${n+1}) ${i.name} - ${i.qty} - ${i.price}\n`;});
- window.open('https://wa.me/201020508423?text='+encodeURIComponent(msg),'_blank');
+  let msg='طلب من طرح بلدنا\n';
+  cart.forEach((i,n)=>msg+=`${n+1}) ${i.name} ${i.qty} ${i.price}\n`);
+  window.open('https://wa.me/201126773698?text='+encodeURIComponent(msg));
+}
+function exportCSV(){
+  let csv='المنتج,الكمية,السعر\n';
+  cart.forEach(i=>csv+=`${i.name},${i.qty},${i.price}\n`);
+  let a=document.createElement('a');
+  a.href='data:text/csv;charset=utf-8,'+encodeURIComponent(csv);
+  a.download='orders.csv';
+  a.click();
+}
+function openWhats(){
+  window.open('https://wa.me/201126773698');
+}
+function ask(){
+  window.open('https://wa.me/201126773698?text='+encodeURIComponent('عندي استفسار'));
 }
 function openLightbox(el){
- document.getElementById('lightbox-img').src=el.src;
- document.getElementById('lightbox').style.display='flex';
+  document.getElementById('lightbox-img').src=el.src;
+  document.getElementById('lightbox').style.display='flex';
 }
-function closeLightbox(){document.getElementById('lightbox').style.display='none';}
-function changeMainImage(el){
- let p=el.closest('.product');
- p.querySelector('.main-img').src=el.src;
- p.querySelectorAll('.product-gallery img').forEach(i=>i.classList.remove('selected'));
- el.classList.add('selected');
-}
-function sendQ(){
- let q=document.getElementById('q').value;
- if(!q)return;
- window.open('https://wa.me/201020508423?text='+encodeURIComponent(q),'_blank');
+function changeMain(el){
+  let p=el.closest('.product');
+  p.querySelector('.main-img').src=el.src;
+  p.querySelectorAll('.product-gallery img').forEach(i=>i.classList.remove('selected'));
+  el.classList.add('selected');
 }
 </script>
 
