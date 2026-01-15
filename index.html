@@ -1,4 +1,4 @@
-ِ<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar">
 <head>
 <meta charset="UTF-8">
@@ -31,11 +31,7 @@ border-radius:8px;
 background:#0d1b2a;
 }
 
-.header-icons{
-display:flex;
-gap:18px;
-align-items:center;
-}
+.header-icons{display:flex;gap:18px;align-items:center;}
 
 .icon-item{
 display:flex;
@@ -48,8 +44,7 @@ cursor:pointer;
 }
 
 .icon-circle{
-width:46px;
-height:46px;
+width:46px;height:46px;
 background:#0d1b2a;
 border-radius:50%;
 display:flex;
@@ -68,12 +63,10 @@ transform:translateY(-2px) scale(1.15);
 .icon-label{margin-top:6px;}
 .icon-item:hover .icon-label{color:#ff6600;}
 
-/* ===== 3 Dots Menu ===== */
+/* ===== 3 dots ===== */
 .menu-wrapper{position:relative;}
-
 .menu-btn{
-width:46px;
-height:46px;
+width:46px;height:46px;
 border-radius:50%;
 background:#0d1b2a;
 display:flex;
@@ -83,10 +76,7 @@ font-size:22px;
 cursor:pointer;
 box-shadow:0 6px 15px rgba(13,27,42,.6);
 }
-
-.menu-btn:hover{
-background:linear-gradient(135deg,#0d1b2a,#ff6600);
-}
+.menu-btn:hover{background:linear-gradient(135deg,#0d1b2a,#ff6600);}
 
 .dropdown{
 position:absolute;
@@ -98,9 +88,7 @@ border-radius:12px;
 width:180px;
 display:none;
 flex-direction:column;
-overflow:hidden;
 z-index:2000;
-box-shadow:0 10px 25px rgba(0,0,0,.6);
 }
 
 .dropdown a{
@@ -110,24 +98,19 @@ color:#fff;
 font-size:14px;
 border-bottom:1px solid #222;
 }
-
+.dropdown a:hover{background:#0d1b2a;color:#ff6600;}
 .dropdown a:last-child{border-bottom:none;}
 
-.dropdown a:hover{
-background:#0d1b2a;
-color:#ff6600;
-}
-
-/* ===== باقي الكود الأصلي ===== */
 .lang-toggle{position:fixed;top:20px;right:90px;padding:10px 15px;background:#0d1b2a;border-radius:10px;cursor:pointer;z-index:999;}
-.lang-toggle:hover{background:linear-gradient(135deg,#0d1b2a,#ff6600);}
 
 .products{display:flex;flex-wrap:wrap;justify-content:center;gap:25px;padding:30px;}
 .product{background:#111;width:260px;border-radius:18px;padding:15px;text-align:center;box-shadow:0 6px 20px rgba(13,27,42,.4);}
 .product img.main-img{width:100%;border-radius:12px;cursor:pointer;}
 .product h2{color:#ff8800;margin:10px 0 5px}
+
 .controls{display:flex;gap:6px;justify-content:center;margin:8px 0;}
 .controls input{width:45%;padding:6px;border-radius:8px;border:none;text-align:center;}
+
 .product-gallery{display:flex;justify-content:center;gap:6px;margin-top:8px;}
 .product-gallery img{width:55px;height:55px;border-radius:8px;cursor:pointer;border:2px solid transparent;}
 .product-gallery img.selected{border-color:#ff6600;}
@@ -189,7 +172,92 @@ color:#ff6600;
 
 <div class="lang-toggle" onclick="toggleLang()">English</div>
 
-<!-- باقي الصفحة والمنتجات والسلة والسكربتات كما كانت بدون أي تغيير -->
+<div class="products" id="products">
+
+<!-- فول سوداني بقشره -->
+<div class="product" data-msg-ar="مناسب للتحميص والتجارة" data-msg-en="Ideal for roasting & trading" data-name-ar="فول سوداني بقشره" data-name-en="Peanut In Shell">
+<img class="main-img" src="images/peanut-shell-1.jpg" onclick="openLightbox(this)">
+<h2 class="prod-name">فول سوداني بقشره</h2>
+<div class="controls">
+<input type="number" placeholder="كمية" min="1">
+<input type="number" placeholder="سعر">
+</div>
+<button onclick="add(this,'Peanut In Shell')">أضف للسلة</button>
+<div class="product-gallery">
+<img src="images/peanut-shell-1.jpg" class="selected" onclick="changeMainImage(this)">
+<img src="images/peanut-shell-2.jpg" onclick="changeMainImage(this)">
+<img src="images/peanut-shell-3.jpg" onclick="changeMainImage(this)">
+</div>
+</div>
+
+<!-- فول سوداني مقشر -->
+<div class="product" data-msg-ar="جاهز للتعبئة والتصدير" data-msg-en="Ready for packing & export" data-name-ar="فول سوداني مقشر" data-name-en="Shelled Peanut">
+<img class="main-img" src="images/peanut-shelled-1.jpg" onclick="openLightbox(this)">
+<h2 class="prod-name">فول سوداني مقشر</h2>
+<div class="controls">
+<input type="number" placeholder="كمية" min="1">
+<input type="number" placeholder="سعر">
+</div>
+<button onclick="add(this,'Shelled Peanut')">أضف للسلة</button>
+<div class="product-gallery">
+<img src="images/peanut-shelled-1.jpg" class="selected" onclick="changeMainImage(this)">
+<img src="images/peanut-shelled-2.jpg" onclick="changeMainImage(this)">
+<img src="images/peanut-shelled-3.jpg" onclick="changeMainImage(this)">
+</div>
+</div>
+
+<!-- فول سوداني مجروش -->
+<div class="product" data-msg-ar="مناسب للتحميص والتجارة" data-msg-en="Ideal for crushing & trading" data-name-ar="فول سوداني مجروش" data-name-en="Crushed Peanut">
+<img class="main-img" src="images/peanut-crushed-1.jpg" onclick="openLightbox(this)">
+<h2 class="prod-name">فول سوداني مجروش</h2>
+<div class="controls">
+<input type="number" placeholder="كمية" min="1">
+<input type="number" placeholder="سعر">
+</div>
+<button onclick="add(this,'Crushed Peanut')">أضف للسلة</button>
+<div class="product-gallery">
+<img src="images/peanut-crushed-1.jpg" class="selected" onclick="changeMainImage(this)">
+<img src="images/peanut-crushed-2.jpg" onclick="changeMainImage(this)">
+<img src="images/peanut-crushed-3.jpg" onclick="changeMainImage(this)">
+</div>
+</div>
+
+<!-- فول سوداني حلواني -->
+<div class="product" data-msg-ar="للاستهلاك الفوري والحلويات" data-msg-en="For immediate consumption & sweets" data-name-ar="فول سوداني حلواني" data-name-en="Halawani Peanut">
+<img class="main-img" src="images/peanut-halawani-1.jpg" onclick="openLightbox(this)">
+<h2 class="prod-name">فول سوداني حلواني</h2>
+<div class="controls">
+<input type="number" placeholder="كمية" min="1">
+<input type="number" placeholder="سعر">
+</div>
+<button onclick="add(this,'Halawani Peanut')">أضف للسلة</button>
+<div class="product-gallery">
+<img src="images/peanut-halawani-1.jpg" class="selected" onclick="changeMainImage(this)">
+<img src="images/peanut-halawani-2.jpg" onclick="changeMainImage(this)">
+<img src="images/peanut-halawani-3.jpg" onclick="changeMainImage(this)">
+</div>
+</div>
+
+</div>
+
+<div class="cart" id="cart">
+<h3>سلة الطلب</h3>
+<ul id="items"></ul>
+<button onclick="send()">اطلب واتساب</button>
+<button onclick="clearCart()">تفريغ</button>
+</div>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+<img id="lightbox-img">
+</div>
+
+<div class="footer-icons">
+<div class="footer-item"><p>🛒 السلة</p></div>
+<div class="footer-item"><p>📦 المنتجات</p></div>
+<div class="footer-item"><p>ℹ من نحن</p></div>
+<div class="footer-item"><p>✉ tarhbladna@gmail.com</p></div>
+<div class="footer-item"><p>📞 01020508423 / 01126773698</p></div>
+</div>
 
 <script>
 let cart=[];
@@ -199,19 +267,51 @@ function toggleMenu(){
 let m=document.getElementById('dropdownMenu');
 m.style.display=(m.style.display==='flex')?'none':'flex';
 }
-
-document.addEventListener('click',function(e){
+document.addEventListener('click',e=>{
 if(!e.target.closest('.menu-wrapper')){
-let m=document.getElementById('dropdownMenu');
-if(m) m.style.display='none';
+document.getElementById('dropdownMenu').style.display='none';
 }
 });
 
-function toggleCart(){document.getElementById('cart')?.classList.toggle('active');}
-
-function openAbout(){
-alert("شركة طرح بلدنا\nخبرة وجودة في بيع الفول السوداني بأنواعه\nللتواصل: 01020508423 / 01126773698");
+function add(btn,name){
+let p=btn.closest('.product');
+let qty=p.querySelector('input').value||'غير محدد';
+let price=p.querySelectorAll('input')[1].value||'حسب الاتفاق';
+let img=p.querySelector('.main-img').src;
+cart.push({name,qty,price,img});
+renderCart();
 }
+function renderCart(){
+let ul=document.getElementById('items');ul.innerHTML='';
+cart.forEach(i=>{
+ul.innerHTML+=`<li>${i.name}<br>كمية: ${i.qty}<br>سعر: ${i.price}</li>`;
+});
+}
+function clearCart(){cart=[];renderCart();}
+function send(){
+if(!cart.length){alert('السلة فارغة');return;}
+let msg='طلب جديد من موقع طرح بلدنا\n\n';
+cart.forEach((i,n)=>msg+=`${n+1}) ${i.name}\nكمية:${i.qty}\nسعر:${i.price}\n${i.img}\n\n`);
+window.open('https://wa.me/201126773698?text='+encodeURIComponent(msg),'_blank');
+}
+function changeMainImage(el){
+let p=el.closest('.product');
+p.querySelector('.main-img').src=el.src;
+p.querySelectorAll('.product-gallery img').forEach(i=>i.classList.remove('selected'));
+el.classList.add('selected');
+}
+function openLightbox(el){
+document.getElementById('lightbox-img').src=el.src;
+document.getElementById('lightbox').style.display='flex';
+}
+function closeLightbox(){
+document.getElementById('lightbox').style.display='none';
+}
+function toggleCart(){document.getElementById('cart').classList.toggle('active');}
+function openAbout(){
+alert("شركة طرح بلدنا\nخبرة وجودة في بيع الفول السوداني بأنواعه\n01020508423 / 01126773698");
+}
+function toggleLang(){}
 </script>
 
 </body>
