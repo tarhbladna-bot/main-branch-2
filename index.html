@@ -4,549 +4,59 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>طرح بلدنا | Tarh Baldna</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-
-<style>
-body{
-margin:0;
-font-family:'Cairo',sans-serif;
-background:#0a0a0a;
-color:#fff;
-}
-  /* ===== Header ===== */
-header{
-background:#111;
-padding:15px 25px;
-border-bottom:2px solid #0d1b2a;
-display:flex;
-justify-content:space-between;
-align-items:center;
-position:sticky;
-top:0;
-z-index:1000;
-}
-
-header h1{
-color:#fff;
-margin:0;
-padding:6px 12px;
-border:2px solid #ff6600;
-border-radius:8px;
-background:#0d1b2a;
-  }
-
-.header-icons{
-display:flex;
-gap:18px;
-align-items:center;
-}
-
-.icon-item{
-display:flex;
-flex-direction:column;
-align-items:center;
-text-decoration:none;
-color:#fff;
-font-size:12px;
-cursor:pointer;
-}
-
-.icon-circle{
-width:46px;
-height:46px;
-  background:#0d1b2a;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:20px;
-box-shadow:0 6px 15px rgba(13,27,42,.6);
-transition:.3s;
-}
-
-.icon-item:hover .icon-circle{
-background:linear-gradient(135deg,#0d1b2a,#ff6600);
-transform:translateY(-2px) scale(1.15);
-}
-
-.icon-label{margin-top:6px;}
-.icon-item:hover .icon-label{color:#ff6600;}
-
-.menu-wrapper{position:relative;}
-.menu-btn{
-  width:46px;height:46px;
-border-radius:50%;
-background:#0d1b2a;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:22px;
-cursor:pointer;
-box-shadow:0 6px 15px rgba(13,27,42,.6);
-}
-
-.dropdown{
-position:absolute;
-top:55px;
-right:0;
-background:#111;
-border:1px solid #0d1b2a;
-border-radius:12px;
-width:180px;
-display:none;
-flex-direction:column;
-  z-index:2000;
-}
-
-.dropdown a{
-padding:12px 15px;
-text-decoration:none;
-color:#fff;
-font-size:14px;
-border-bottom:1px solid #222;
-}
-
-.dropdown a:hover{
-background:#0d1b2a;
-color:#ff6600;
-}
-
-.lang-toggle{
-position:fixed;
-top:20px;
-right:90px;
-padding:10px 15px;
-background:#0d1b2a;
-  border-radius:10px;
-cursor:pointer;
-z-index:999;
-}
-
-/* ===== Banner ===== */
-.banner{
-width:100%;
-background:linear-gradient(135deg,#0d1b2a,#111);
-padding:25px 15px;
-border-bottom:2px solid #ff6600;
-position:relative;
-}
-
-.banner-content{
-max-width:1200px;
-margin:auto;
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:20px;
-}
-  .banner-img{
-width:160px;
-}
-
-.banner-img img{
-width:100%;
-border-radius:15px;
-box-shadow:0 6px 20px rgba(0,0,0,.6);
-}
-
-.banner-text{
-flex:1;
-text-align:center;
-}
-
-.banner-text h2{
-margin:0;
-color:#ff8800;
-font-size:22px;
-}
-  .banner-text p{
-margin-top:8px;
-font-size:16px;
-line-height:1.7;
-}
-
-.banner::before,
-.banner::after{
-content:"➜";
-position:absolute;
-top:50%;
-transform:translateY(-50%);
-font-size:40px;
-color:#ff6600;
-opacity:.4;
-}
-
-.banner::before{left:10px;}
-.banner::after{
-right:10px;
-transform:translateY(-50%) rotate(180deg);
-}
-  @media(max-width:768px){
-.banner-content{
-flex-direction:column;
-}
-.banner-img{width:60%;}
-.banner::before,
-.banner::after{display:none;}
-}
-
-/* ===== Products ===== */
-.products{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:25px;
-padding:30px;
-}
-
-.product{
-background:#111;
-width:260px;
-  border-radius:18px;
-padding:15px;
-text-align:center;
-box-shadow:0 6px 20px rgba(13,27,42,.4);
-}
-
-.product img.main-img{
-width:100%;
-border-radius:12px;
-cursor:pointer;
-}
-
-.product h2{
-color:#ff8800;
-margin:10px 0 5px;
-}
-
-.controls{
-display:flex;
-gap:6px;
-justify-content:center;
-  margin:8px 0;
-}
-
-.controls input{
-width:45%;
-padding:6px;
-border-radius:8px;
-border:none;
-text-align:center;
-}
-
-.product-gallery{
-display:flex;
-justify-content:center;
-gap:6px;
-margin-top:8px;
-}
-
-.product-gallery img{
-width:55px;
-height:55px;
-  border-radius:8px;
-cursor:pointer;
-border:2px solid transparent;
-}
-
-.product-gallery img.selected{
-border-color:#ff6600;
-}
-
-/* ===== Cart ===== */
-.cart{
-position:fixed;
-left:20px;
-top:80px;
-width:280px;
-background:#111;
-border-radius:15px;
-padding:15px;
-z-index:999;
-}
-  .cart ul{
-list-style:none;
-padding:0;
-}
-
-.cart li{
-background:#222;
-margin-bottom:6px;
-padding:6px;
-border-radius:8px;
-font-size:13px;
-}
-
-.cart button{
-width:100%;
-margin-top:6px;
-padding:8px;
-border:none;
-border-radius:10px;
-background:#0d1b2a;
-color:#fff;
-  cursor:pointer;
-}
-
-/* ===== Lightbox ===== */
-.lightbox{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,.9);
-display:none;
-justify-content:center;
-align-items:center;
-z-index:3000;
-}
-
-.lightbox img{
-max-width:90%;
-max-height:90%;
-border-radius:15px;
-  }
-
-/* ===== Footer ===== */
-.footer-icons{
-display:flex;
-justify-content:center;
-gap:25px;
-margin-top:30px;
-padding:20px;
-border-top:2px solid #0d1b2a;
-flex-wrap:wrap;
-}
-</style>
-</head>
-
-<body>
-
-<header>
-<h1>طرح بلدنا</h1>
-<div class="header-icons">
-  <div class="icon-item" onclick="toggleCart()">
-<div class="icon-circle">🛒</div><div class="icon-label">السلة</div>
-</div>
-<a class="icon-item" href="#products">
-<div class="icon-circle">📦</div><div class="icon-label">المنتجات</div>
-</a>
-<a class="icon-item" onclick="openAbout()">
-<div class="icon-circle">ℹ</div><div class="icon-label">من نحن</div>
-</a>
-<a class="icon-item" href="https://wa.me/201126773698" target="_blank">
-<div class="icon-circle">📞</div><div class="icon-label">واتساب</div>
-</a>
-</div>
-</header>
-
-<div class="lang-toggle">English</div>
-
-<!-- ===== Banner ===== -->
-<div class="banner">
-  <div class="banner-content">
-    <div class="banner-img">
-      <img src="images/banner-left.jpg">
-    </div>
-
-    <div class="banner-text">
-      <h2>طرح بلدنا</h2>
-      <p>
-        خبرة أكثر من <strong>15 عام</strong><br>
-        في مجال الفول السوداني والمفروك<br>
-        والمحاصيل الزراعية
-      </p>
-    </div>
-
-    <div class="banner-img">
-      <img src="images/banner-right.jpg">
-    </div>
-  </div>
-</div>
-
-فتح الشريط الجانبي
-
-ChatGPT
-اشترك في Plus
-
-
-أنت قلت:
-نضيف بانر اعلى المنتجات
-ونكتب خبره أكثر من 15 عام في مجال الفول السودانى والمفروك والمحاصيل الزراعية
-ونعدل لو فيه حاجه هتحجب ظهور البانر كويس
-ونضيف صورتين هرفعهم انا فى الموقع يمين وشمال بسهم
-
-<!DOCTYPE html>
-<html lang="ar">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>طرح بلدنا | Tarh Baldna</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-
 <style>
 body{margin:0;font-family:'Cairo',sans-serif;background:#0a0a0a;color:#fff;}
-
-header{
-background:#111;
-padding:15px 25px;
-border-bottom:2px solid #0d1b2a;
-display:flex;
-justify-content:space-between;
-align-items:center;
-position:sticky;
-top:0;
-z-index:1000;
-}
-
-header h1{
-color:#fff;
-margin:0;
-padding:6px 12px;
-border:2px solid #ff6600;
-border-radius:8px;
-background:#0d1b2a;
-}
-
-.header-icons{display:flex;gap:18px;align-items:center;}
-
-.icon-item{
-display:flex;
-flex-direction:column;
-align-items:center;
-text-decoration:none;
-color:#fff;
-font-size:12px;
-cursor:pointer;
-}
-
-.icon-circle{
-width:46px;height:46px;
-background:#0d1b2a;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:20px;
-box-shadow:0 6px 15px rgba(13,27,42,.6);
-transition:.3s;
-}
-
-.icon-item:hover .icon-circle{
-background:linear-gradient(135deg,#0d1b2a,#ff6600);
-transform:translateY(-2px) scale(1.15);
-}
-
-.icon-label{margin-top:6px;}
+header{background:#111;padding:15px 25px;border-bottom:2px solid #0d1b2a;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:1000;}
+header h1{color:#fff;margin:0;padding:6px 12px;border:2px solid #ff6600;border-radius:8px;background:#0d1b2a;}
+.header-icons{display:flex;gap:18px;}
+.icon-item{display:flex;flex-direction:column;align-items:center;text-decoration:none;color:#fff;font-size:12px;}
+.icon-circle{width:46px;height:46px;background:#0d1b2a;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;color:#fff;box-shadow:0 6px 15px rgba(13,27,42,.6);transition:transform .3s, background .3s;}
+.icon-item:hover .icon-circle{background:linear-gradient(135deg,#0d1b2a,#ff6600);color:#fff;transform:translateY(-2px) scale(1.15);}
+.icon-label{margin-top:6px;transition:.3s;}
 .icon-item:hover .icon-label{color:#ff6600;}
-
-/ ===== 3 dots ===== /
-.menu-wrapper{position:relative;}
-.menu-btn{
-width:46px;height:46px;
-border-radius:50%;
-background:#0d1b2a;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:22px;
-cursor:pointer;
-box-shadow:0 6px 15px rgba(13,27,42,.6);
-}
-.menu-btn:hover{background:linear-gradient(135deg,#0d1b2a,#ff6600);}
-
-.dropdown{
-position:absolute;
-top:55px;
-right:0;
-background:#111;
-border:1px solid #0d1b2a;
-border-radius:12px;
-width:180px;
-display:none;
-flex-direction:column;
-z-index:2000;
-}
-
-.dropdown a{
-padding:12px 15px;
-text-decoration:none;
-color:#fff;
-font-size:14px;
-border-bottom:1px solid #222;
-}
-.dropdown a:hover{background:#0d1b2a;color:#ff6600;}
-.dropdown a:last-child{border-bottom:none;}
-
 .lang-toggle{position:fixed;top:20px;right:90px;padding:10px 15px;background:#0d1b2a;border-radius:10px;cursor:pointer;z-index:999;}
-
+.lang-toggle:hover{background:linear-gradient(135deg,#0d1b2a,#ff6600);}
 .products{display:flex;flex-wrap:wrap;justify-content:center;gap:25px;padding:30px;}
 .product{background:#111;width:260px;border-radius:18px;padding:15px;text-align:center;box-shadow:0 6px 20px rgba(13,27,42,.4);}
-.product img.main-img{width:100%;border-radius:12px;cursor:pointer;}
+.product img.main-img{width:100%;border-radius:12px;cursor:pointer;transition:opacity .3s;}
 .product h2{color:#ff8800;margin:10px 0 5px}
-
 .controls{display:flex;gap:6px;justify-content:center;margin:8px 0;}
 .controls input{width:45%;padding:6px;border-radius:8px;border:none;text-align:center;}
-
 .product-gallery{display:flex;justify-content:center;gap:6px;margin-top:8px;}
 .product-gallery img{width:55px;height:55px;border-radius:8px;cursor:pointer;border:2px solid transparent;}
 .product-gallery img.selected{border-color:#ff6600;}
-
 .cart{position:fixed;left:20px;top:80px;width:280px;background:#111;border-radius:15px;padding:15px;z-index:999;}
 .cart ul{padding:0;list-style:none}
 .cart li{background:#222;margin-bottom:6px;padding:6px;border-radius:8px;font-size:13px;}
 .cart button{width:100%;margin-top:6px;padding:8px;border:none;border-radius:10px;background:#0d1b2a;color:#fff;cursor:pointer;}
-
 .lightbox{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.9);display:none;justify-content:center;align-items:center;z-index:3000;}
 .lightbox img{max-width:90%;max-height:90%;border-radius:15px;}
-
 .footer-icons{display:flex;justify-content:center;gap:25px;margin-top:30px;padding:20px;border-top:2px solid #0d1b2a;flex-wrap:wrap;}
 .footer-item{text-align:center;font-size:14px;}
 .footer-item p{margin:4px 0;}
 </style>
 </head>
-
 <body>
 
 <header>
 <h1>طرح بلدنا</h1>
-
 <div class="header-icons">
-
-<a class="icon-item" onclick="toggleCart()">
+<a class="icon-item" href="javascript:void(0)" onclick="toggleCart()">
 <div class="icon-circle">🛒</div><div class="icon-label">السلة</div>
 </a>
-
 <a class="icon-item" href="#products">
 <div class="icon-circle">📦</div><div class="icon-label">المنتجات</div>
 </a>
-
-<a class="icon-item" onclick="openAbout()">
+<a class="icon-item" href="javascript:void(0)" onclick="openAbout()">
 <div class="icon-circle">ℹ</div><div class="icon-label">من نحن</div>
 </a>
-
 <a class="icon-item" href="mailto:tarhbladna@gmail.com">
 <div class="icon-circle">✉</div><div class="icon-label">الإيميل</div>
 </a>
-
 <a class="icon-item" href="https://wa.me/201126773698" target="_blank">
 <div class="icon-circle">📞</div><div class="icon-label">واتساب</div>
 </a>
-
-<!-- الثلاث نقاط -->
-<div class="menu-wrapper">
-<div class="menu-btn" onclick="toggleMenu()">⋮</div>
-<div class="dropdown" id="dropdownMenu">
-<a href="#products">📦 الفئات</a>
-<a href="javascript:void(0)" onclick="openAbout()">ℹ عن الشركة</a>
-<a href="mailto:tarhbladna@gmail.com">🆘 المساعدة</a>
-<a href="https://wa.me/201126773698" target="_blank">❓ عندك سؤال</a>
-</div>
-</div>
-
 </div>
 </header>
 
@@ -632,663 +142,27 @@ border-bottom:1px solid #222;
 </div>
 
 <div class="footer-icons">
-<div class="footer-item"><p>🛒 السلة</p></div>
-<div class="footer-item"><p>📦 المنتجات</p></div>
-<div class="footer-item"><p>ℹ من نحن</p></div>
-<div class="footer-item"><p>✉ tarhbladna@gmail.com</p></div>
-<div class="footer-item"><p>📞 01020508423 / 01126773698</p></div>
+<div class="footer-item"><p class="ft-ar">🛒 السلة</p><p class="ft-en" style="display:none">🛒 Cart</p></div>
+<div class="footer-item"><p class="ft-ar">📦 المنتجات</p><p class="ft-en" style="display:none">📦 Products</p></div>
+<div class="footer-item"><p class="ft-ar">ℹ من نحن</p><p class="ft-en" style="display:none">ℹ About Us</p></div>
+<div class="footer-item"><p class="ft-ar">✉ tarhbladna@gmail.com</p><p class="ft-en" style="display:none">✉ tarhbladna@gmail.com</p></div>
+<div class="footer-item"><p class="ft-ar">📞 01020508423 / 01126773698</p><p class="ft-en" style="display:none">📞 01020508423 / 01126773698</p></div>
 </div>
 
 <script>
 let cart=[];
 let currentLang='ar';
 
-function toggleMenu(){
-let m=document.getElementById('dropdownMenu');
-m.style.display=(m.style.display==='flex')?'none':'flex';
-}
-document.addEventListener('click',e=>{
-if(!e.target.closest('.menu-wrapper')){
-document.getElementById('dropdownMenu').style.display='none';
-}
-});
-
 function add(btn,name){
-let p=btn.closest('.product');
-let qty=p.querySelector('input').value||'غير محدد';
-let price=p.querySelectorAll('input')[1].value||'حسب الاتفاق';
-let img=p.querySelector('.main-img').src;
-cart.push({name,qty,price,img});
-renderCart();
-}
-function renderCart(){
-let ul=document.getElementById('items');ul.innerHTML='';
-cart.forEach(i=>{
-ul.innerHTML+=<li>${i.name}<br>كمية: ${i.qty}<br>سعر: ${i.price}</li>;
-});
-}
-function clearCart(){cart=[];renderCart();}
-function send(){
-if(!cart.length){alert('السلة فارغة');return;}
-let msg='طلب جديد من موقع طرح بلدنا\n\n';
-cart.forEach((i,n)=>msg+=${n+1}) ${i.name}\nكمية:${i.qty}\nسعر:${i.price}\n${i.img}\n\n);
-window.open('https://wa.me/201126773698?text='+encodeURIComponent(msg),'_blank');
-}
-function changeMainImage(el){
-let p=el.closest('.product');
-p.querySelector('.main-img').src=el.src;
-p.querySelectorAll('.product-gallery img').forEach(i=>i.classList.remove('selected'));
-el.classList.add('selected');
-}
-function openLightbox(el){
-document.getElementById('lightbox-img').src=el.src;
-document.getElementById('lightbox').style.display='flex';
-}
-function closeLightbox(){
-document.getElementById('lightbox').style.display='none';
-}
-function toggleCart(){document.getElementById('cart').classList.toggle('active');}
-function openAbout(){
-alert("شركة طرح بلدنا\nخبرة وجودة في بيع الفول السوداني بأنواعه\n01020508423 / 01126773698");
-}
-function toggleLang(){}
-</script>
-
-</body>
-</html>
-
-
-قال ChatGPT:
-تمام 👌 خلّيك معايا خطوة خطوة، وأنا هظبطهولك كود كامل جاهز بدون ما حاجة تحجب البانر أو تلخبط الشكل.
-
-المطلوب اللي هنعمله
-✅ إضافة بانر أعلى المنتجات مباشرة
-
-✅ كتابة جملة:
-"خبرة أكثر من 15 عام في مجال الفول السوداني والمفروك والمحاصيل الزراعية"
-
-✅ التأكد إن مفيش عنصر (الهيدر – السلة – إلخ) يحجب البانر
-
-✅ إضافة صورتين (يمين وشمال) بأسهم
-👉 انت هترفع الصور بنفسك وتحط أسمائهم
-
-1️⃣ أسماء الصور اللي هترفعها
-حطهم في فولدر images:
-
-css
-نسخ الكود
-banner-right.jpg
-banner-left.jpg
-(لو حابب تغير الاسم عادي، بس غيره في الكود)
-
-2️⃣ أضف الـ CSS ده (قبل </style> مباشرة)
-css
-نسخ الكود
-/* ===== Banner Section ===== */
-.banner{
-width:100%;
-background:linear-gradient(135deg,#0d1b2a,#111);
-margin-top:10px;
-padding:25px 15px;
-position:relative;
-overflow:hidden;
-border-bottom:2px solid #ff6600;
-}
-
-.banner-content{
-max-width:1200px;
-margin:auto;
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:15px;
-position:relative;
-z-index:2;
-}
-
-.banner-img{
-width:160px;
-max-width:30%;
-}
-
-.banner-img img{
-width:100%;
-border-radius:15px;
-box-shadow:0 6px 20px rgba(0,0,0,.5);
-}
-
-.banner-text{
-text-align:center;
-flex:1;
-}
-
-.banner-text h2{
-margin:0;
-color:#ff8800;
-font-size:22px;
-}
-
-.banner-text p{
-margin-top:8px;
-font-size:16px;
-color:#fff;
-line-height:1.6;
-}
-
-/* arrows */
-.banner::before,
-.banner::after{
-content:"➜";
-position:absolute;
-top:50%;
-transform:translateY(-50%);
-font-size:40px;
-color:#ff6600;
-opacity:.4;
-}
-
-.banner::before{left:10px;}
-.banner::after{
-right:10px;
-transform:translateY(-50%) rotate(180deg);
-}
-
-/* responsive */
-@media(max-width:768px){
-.banner-content{
-flex-direction:column;
-}
-.banner-img{
-max-width:60%;
-}
-.banner::before,
-.banner::after{display:none;}
-}
-3️⃣ أضف كود البانر (مهم)
-📌 حطه مباشرة بعد
-
-html
-نسخ الكود
-<div class="lang-toggle" onclick="toggleLang()">English</div>
-👇👇👇
-
-html
-نسخ الكود
-<!-- ===== Banner Above Products ===== -->
-<div class="banner">
-  <div class="banner-content">
-
-    <div class="banner-img">
-      <img src="images/banner-left.jpg" alt="طرح بلدنا">
-    </div>
-
-    <div class="banner-text">
-      <h2>طرح بلدنا</h2>
-      <p>
-        خبرة أكثر من <strong>15 عام</strong><br>
-        في مجال الفول السوداني والمفروك<br>
-        والمحاصيل الزراعية
-      </p>
-    </div>
-
-    <div class="banner-img">
-      <img src="images/banner-right.jpg" alt="Tarh Baldna">
-    </div>
-
-  </div>
-</div>
-4️⃣ ليه البانر هيظهر صح ومش هيتحجب؟
-✔ الهيدر position: sticky لكن البانر تحته مباشرة
-
-✔ الـ z-index مظبوط
-
-✔ السلة fixed على الجنب ومش فوق المحتوى
-
-✔ مفيش overflow:hidden عام يحجبه
-
-🔥 النتيجة
-بانر احترافي أعلى المنتجات
-
-صورتين يمين وشمال
-
-سهمين حركة خفيفة
-
-متجاوب على الموبايل
-
-شكله شركة تقيلة مش موقع عشوائي 💪
-
-لو حابب:
-
-✨ حركة سلايد للصور
-
-✨ كتابة متغيرة
-
-✨ زر “تواصل معنا” جوه البانر
-
-قولي واظبطهولك فورًا 👌
-
-
-
-
-
-
-
-أنت قلت:
-ضيفه انت وابعته كود كامل
-
-
-قال ChatGPT:
-تمام يا يوسف 🤝
-أنا ضيفت البانر بنفسي، ظبطته شكلاً ووظيفة، وعدّلت أي حاجة كانت ممكن تحجب ظهوره، وكمان صلّحت أخطاء الجافاسكربت اللي كانت مكسّرة الكود 👌
-ده الكود كامل جاهز نسخ-لصق.
-
-📌 مهم قبل ما ترفع:
-حط الصورتين دول داخل مجلد images
-
-css
-نسخ الكود
-banner-left.jpg
-banner-right.jpg
-✅ الكود الكامل بعد الإضافة والتعديل
-html
-نسخ الكود
-<!DOCTYPE html>
-<html lang="ar">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>طرح بلدنا | Tarh Baldna</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-
-<style>
-body{
-margin:0;
-font-family:'Cairo',sans-serif;
-background:#0a0a0a;
-color:#fff;
-}
-
-/* ===== Header ===== */
-header{
-background:#111;
-padding:15px 25px;
-border-bottom:2px solid #0d1b2a;
-display:flex;
-justify-content:space-between;
-align-items:center;
-position:sticky;
-top:0;
-z-index:1000;
-}
-
-header h1{
-color:#fff;
-margin:0;
-padding:6px 12px;
-border:2px solid #ff6600;
-border-radius:8px;
-background:#0d1b2a;
-}
-
-.header-icons{
-display:flex;
-gap:18px;
-align-items:center;
-}
-
-.icon-item{
-display:flex;
-flex-direction:column;
-align-items:center;
-text-decoration:none;
-color:#fff;
-font-size:12px;
-cursor:pointer;
-}
-
-.icon-circle{
-width:46px;
-height:46px;
-background:#0d1b2a;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:20px;
-box-shadow:0 6px 15px rgba(13,27,42,.6);
-transition:.3s;
-}
-
-.icon-item:hover .icon-circle{
-background:linear-gradient(135deg,#0d1b2a,#ff6600);
-transform:translateY(-2px) scale(1.15);
-}
-
-.icon-label{margin-top:6px;}
-.icon-item:hover .icon-label{color:#ff6600;}
-
-.menu-wrapper{position:relative;}
-.menu-btn{
-width:46px;height:46px;
-border-radius:50%;
-background:#0d1b2a;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:22px;
-cursor:pointer;
-box-shadow:0 6px 15px rgba(13,27,42,.6);
-}
-
-.dropdown{
-position:absolute;
-top:55px;
-right:0;
-background:#111;
-border:1px solid #0d1b2a;
-border-radius:12px;
-width:180px;
-display:none;
-flex-direction:column;
-z-index:2000;
-}
-
-.dropdown a{
-padding:12px 15px;
-text-decoration:none;
-color:#fff;
-font-size:14px;
-border-bottom:1px solid #222;
-}
-
-.dropdown a:hover{
-background:#0d1b2a;
-color:#ff6600;
-}
-
-.lang-toggle{
-position:fixed;
-top:20px;
-right:90px;
-padding:10px 15px;
-background:#0d1b2a;
-border-radius:10px;
-cursor:pointer;
-z-index:999;
-}
-
-/* ===== Banner ===== */
-.banner{
-width:100%;
-background:linear-gradient(135deg,#0d1b2a,#111);
-padding:25px 15px;
-border-bottom:2px solid #ff6600;
-position:relative;
-}
-
-.banner-content{
-max-width:1200px;
-margin:auto;
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:20px;
-}
-
-.banner-img{
-width:160px;
-}
-
-.banner-img img{
-width:100%;
-border-radius:15px;
-box-shadow:0 6px 20px rgba(0,0,0,.6);
-}
-
-.banner-text{
-flex:1;
-text-align:center;
-}
-
-.banner-text h2{
-margin:0;
-color:#ff8800;
-font-size:22px;
-}
-
-.banner-text p{
-margin-top:8px;
-font-size:16px;
-line-height:1.7;
-}
-
-.banner::before,
-.banner::after{
-content:"➜";
-position:absolute;
-top:50%;
-transform:translateY(-50%);
-font-size:40px;
-color:#ff6600;
-opacity:.4;
-}
-
-.banner::before{left:10px;}
-.banner::after{
-right:10px;
-transform:translateY(-50%) rotate(180deg);
-}
-
-@media(max-width:768px){
-.banner-content{
-flex-direction:column;
-}
-.banner-img{width:60%;}
-.banner::before,
-.banner::after{display:none;}
-}
-
-/* ===== Products ===== */
-.products{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:25px;
-padding:30px;
-}
-
-.product{
-background:#111;
-width:260px;
-border-radius:18px;
-padding:15px;
-text-align:center;
-box-shadow:0 6px 20px rgba(13,27,42,.4);
-}
-
-.product img.main-img{
-width:100%;
-border-radius:12px;
-cursor:pointer;
-}
-
-.product h2{
-color:#ff8800;
-margin:10px 0 5px;
-}
-
-.controls{
-display:flex;
-gap:6px;
-justify-content:center;
-margin:8px 0;
-}
-
-.controls input{
-width:45%;
-padding:6px;
-border-radius:8px;
-border:none;
-text-align:center;
-}
-
-.product-gallery{
-display:flex;
-justify-content:center;
-gap:6px;
-margin-top:8px;
-}
-
-.product-gallery img{
-width:55px;
-height:55px;
-border-radius:8px;
-cursor:pointer;
-border:2px solid transparent;
-}
-
-.product-gallery img.selected{
-border-color:#ff6600;
-}
-
-/* ===== Cart ===== */
-.cart{
-position:fixed;
-left:20px;
-top:80px;
-width:280px;
-background:#111;
-border-radius:15px;
-padding:15px;
-z-index:999;
-}
-
-.cart ul{
-list-style:none;
-padding:0;
-}
-
-.cart li{
-background:#222;
-margin-bottom:6px;
-padding:6px;
-border-radius:8px;
-font-size:13px;
-}
-
-.cart button{
-width:100%;
-margin-top:6px;
-padding:8px;
-border:none;
-border-radius:10px;
-background:#0d1b2a;
-color:#fff;
-cursor:pointer;
-}
-
-/* ===== Lightbox ===== */
-.lightbox{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,.9);
-display:none;
-justify-content:center;
-align-items:center;
-z-index:3000;
-}
-
-.lightbox img{
-max-width:90%;
-max-height:90%;
-border-radius:15px;
-}
-
-/* ===== Footer ===== */
-.footer-icons{
-display:flex;
-justify-content:center;
-gap:25px;
-margin-top:30px;
-padding:20px;
-border-top:2px solid #0d1b2a;
-flex-wrap:wrap;
-}
-</style>
-</head>
-
-<body>
-
-<header>
-<h1>طرح بلدنا</h1>
-<div class="header-icons">
-<div class="icon-item" onclick="toggleCart()">
-<div class="icon-circle">🛒</div><div class="icon-label">السلة</div>
-</div>
-<a class="icon-item" href="#products">
-<div class="icon-circle">📦</div><div class="icon-label">المنتجات</div>
-</a>
-<a class="icon-item" onclick="openAbout()">
-<div class="icon-circle">ℹ</div><div class="icon-label">من نحن</div>
-</a>
-<a class="icon-item" href="https://wa.me/201126773698" target="_blank">
-<div class="icon-circle">📞</div><div class="icon-label">واتساب</div>
-</a>
-</div>
-</header>
-
-<div class="lang-toggle">English</div>
-
-<!-- ===== Banner ===== -->
-<div class="banner">
-  <div class="banner-content">
-    <div class="banner-img">
-      <img src="images/banner-left.jpg">
-    </div>
-
-    <div class="banner-text">
-      <h2>طرح بلدنا</h2>
-      <p>
-        خبرة أكثر من <strong>15 عام</strong><br>
-        في مجال الفول السوداني والمفروك<br>
-        والمحاصيل الزراعية
-      </p>
-    </div>
-
-    <div class="banner-img">
-      <img src="images/banner-right.jpg">
-    </div>
-  </div>
-</div>
-
-<div class="products" id="products">
-<!-- المنتجات كما هي -->
-</div>
-
-<div class="cart" id="cart">
-<h3>سلة الطلب</h3>
-<ul id="items"></ul>
-<button onclick="send()">اطلب واتساب</button>
-<button onclick="clearCart()">تفريغ</button>
-</div>
-
-<div class="lightbox" id="lightbox" onclick="closeLightbox()">
-<img id="lightbox-img">
-</div>
-
-<script>
-let cart=[];
-
-function add(btn,name){
-  let p=btn.closest('.product');
-let qty=p.querySelector('input').value||'غير محدد';
-let price=p.querySelectorAll('input')[1].value||'حسب الاتفاق';
-let img=p.querySelector('.main-img').src;
-cart.push({name,qty,price,img});
+let product = btn.closest('.product');
+let qty = product.querySelector('input[type=number]').value;
+let price = product.querySelectorAll('input')[1].value;
+if(!qty){qty='غير محدد';}
+if(!price){price='حسب الاتفاق';}
+let img = product.querySelector('.main-img').src;
+let msgAr = product.dataset.msgAr;
+let msgEn = product.dataset.msgEn;
+cart.push({name,qty,price,img,msgAr,msgEn});
 renderCart();
 }
 
@@ -1296,36 +170,62 @@ function renderCart(){
 let ul=document.getElementById('items');
 ul.innerHTML='';
 cart.forEach(i=>{
-ul.innerHTML+=`<li>${i.name}<br>كمية: ${i.qty}<br>سعر: ${i.price}</li>`;
+let li=document.createElement('li');
+li.innerHTML=`${i.name}<br>كمية: ${i.qty}<br>سعر: ${i.price}`;
+ul.appendChild(li);
 });
 }
 
 function clearCart(){cart=[];renderCart();}
 
 function send(){
-  if(!cart.length){alert('السلة فارغة');return;}
-let msg='طلب جديد من موقع طرح بلدنا\n\n';
+if(cart.length===0){alert('السلة فارغة');return;}
+let msg=`طلب جديد من موقع طرح بلدنا\n\n`;
 cart.forEach((i,n)=>{
-msg+=`${n+1}) ${i.name}\nكمية: ${i.qty}\nسعر: ${i.price}\n${i.img}\n\n`;
+msg+=`${n+1}) ${i.name}\nالكمية: ${i.qty}\nالسعر: ${i.price}\nملاحظة: ${i.msgAr}\nImage: ${i.img}\n\nEN:\n${i.name}\nQty: ${i.qty}\nPrice: ${i.price}\n${i.msgEn}\n\n`;
 });
 window.open('https://wa.me/201126773698?text='+encodeURIComponent(msg),'_blank');
+}
+
+function changeMainImage(el){
+let p=el.closest('.product');
+let main=p.querySelector('.main-img');
+main.style.opacity=0;
+setTimeout(()=>{main.src=el.src;main.style.opacity=1;},200);
+p.querySelectorAll('.product-gallery img').forEach(i=>i.classList.remove('selected'));
+el.classList.add('selected');
 }
 
 function openLightbox(el){
 document.getElementById('lightbox-img').src=el.src;
 document.getElementById('lightbox').style.display='flex';
 }
-
 function closeLightbox(){
 document.getElementById('lightbox').style.display='none';
 }
-function toggleCart(){
-document.getElementById('cart').classList.toggle('active');
+
+function toggleLang(){
+let ar = document.querySelectorAll('.ft-ar, .prod-name');
+let en = document.querySelectorAll('.ft-en');
+if(currentLang==='ar'){
+ar.forEach(e=>e.style.display='none');
+en.forEach(e=>e.style.display='block');
+document.querySelector('.lang-toggle').textContent='عربي';
+currentLang='en';
+}else{
+ar.forEach(e=>e.style.display='block');
+en.forEach(e=>e.style.display='none');
+document.querySelector('.lang-toggle').textContent='English';
+currentLang='ar';
+}
+document.querySelectorAll('.product').forEach(p=>{
+p.querySelector('.prod-name').textContent=currentLang==='en'?p.dataset.nameEn:p.dataset.nameAr;
+});
 }
 
-function openAbout(){
-alert("طرح بلدنا\nخبرة أكثر من 15 عام في تجارة الفول السوداني والمحاصيل الزراعية\n01126773698");
-}
+function toggleCart(){document.getElementById('cart').classList.toggle('active');}
+
+function openAbout(){alert("شركة طرح بلدنا\nخبرة وجودة في بيع الفول السوداني بأنواعه\nللتواصل: 01020508423 / 01126773698");}
 </script>
 
 </body>
