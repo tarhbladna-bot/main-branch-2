@@ -4,18 +4,375 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>موقع أبويوسف للتجارة والتصنيع | شركة طرح بلدنا</title>
-  <meta name="description" content="شركة طرح بلدنا للمحاصيل الزراعية - أبويوسف للتجارة والتصنيع. تصنيع وتجهيز وتوريد وتصدير الفول السوداني بجميع أنواعه. السعر عند الطلب." />
+  <meta name="description" content="شركة طرح بلدنا للمحاصيل الزراعية — أبويوسف للتجارة والتصنيع. تصنيع وتجهيز وتوريد وتصدير الفول السوداني. شكاير 50/25 كجم + فاكيوم 10 كجم. السعر عند الطلب." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    :root{
+      --bg:#050508;
+      --bg2:#0b1020;
+      --surface: rgba(255,255,255,.06);
+      --surface2: rgba(255,255,255,.09);
+      --border: rgba(255,255,255,.12);
+      --text:#f3f4f6;
+      --muted: rgba(243,244,246,.72);
+      --red:#e11d48;
+      --red2:#ff2d55;
+      --cyan:#22d3ee;
+      --shadow: 0 18px 48px rgba(0,0,0,.55);
+      --shadow2: 0 26px 70px rgba(0,0,0,.62);
+      --radius: 18px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{
+      margin:0;padding:0;
+      background:
+        radial-gradient(900px 450px at 20% 0%, rgba(34,211,238,.10), transparent 60%),
+        radial-gradient(900px 450px at 80% 20%, rgba(225,29,72,.16), transparent 55%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      color:var(--text);
+    }
+    body{
+      font-family:"Cairo","Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      overflow-x:hidden;
+    }
+    a{color:inherit}
+    .wrap{max-width:1180px;margin:0 auto;padding:0 16px}
+
+    /* Topbar */
+    .topbar{
+      position:sticky;top:0;z-index:50;
+      background: rgba(5,5,8,.72);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .topbarIn{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:12px 0;gap:12px;
+    }
+    .brand{display:flex;align-items:center;gap:12px;min-width:260px}
+    .logo{
+      width:44px;height:44px;border-radius:14px;
+      border:1px solid rgba(225,29,72,.35);
+      background:
+        radial-gradient(20px 20px at 30% 30%, rgba(255,45,85,.35), transparent 70%),
+        radial-gradient(18px 18px at 70% 70%, rgba(34,211,238,.22), transparent 70%),
+        linear-gradient(135deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+      box-shadow: 0 14px 36px rgba(225,29,72,.12);
+      position:relative;overflow:hidden;
+    }
+    .logo:after{
+      content:"";position:absolute;inset:-2px;
+      background: radial-gradient(260px 90px at 50% 0%, rgba(225,29,72,.22), transparent 60%);
+      opacity:.9;
+    }
+    .brandName{font-weight:900;letter-spacing:.2px;line-height:1.15}
+    .brandSub{color:var(--muted);font-weight:800;font-size:13px;margin-top:2px}
+
+    .actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+    .pill{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:10px 12px;border-radius:999px;text-decoration:none;
+      border:1px solid var(--border);background: rgba(255,255,255,.04);
+      font-weight:900;transition:.2s;
+    }
+    .pill:hover{transform: translateY(-1px);border-color: rgba(225,29,72,.32);background: rgba(255,255,255,.06)}
+    .pillRed{
+      background: linear-gradient(90deg, var(--red), var(--red2));
+      border-color: rgba(225,29,72,.35);
+      box-shadow: 0 18px 40px rgba(225,29,72,.18);
+    }
+    .pillCart{cursor:pointer}
+    .cartCount{
+      min-width:26px;height:22px;padding:0 8px;border-radius:999px;
+      display:inline-grid;place-items:center;
+      background: rgba(34,211,238,.14);
+      border:1px solid rgba(34,211,238,.25);
+      font-size:12px;
+    }
+
+    .lang{
+      display:inline-flex;gap:6px;padding:6px;border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);background: rgba(255,255,255,.03);
+    }
+    .lang button{
+      border:0;cursor:pointer;
+      padding:8px 10px;border-radius:999px;
+      background:transparent;color:var(--text);
+      font-weight:900;letter-spacing:.2px;transition:.2s;
+    }
+    .lang button.active{
+      background: rgba(225,29,72,.18);
+      border:1px solid rgba(225,29,72,.35);
+    }
+
+    /* Hero */
+    .hero{padding:18px 0 50px;position:relative;overflow:hidden}
+    .heroBanner{
+      margin:14px auto 0;border-radius:22px;border: 1px solid rgba(255,255,255,.10);
+      overflow:hidden;box-shadow: var(--shadow2);position:relative;max-width:1180px
+    }
+    .heroBanner img{width:100%;display:block;max-height:420px;object-fit:cover}
+    .heroBanner:after{
+      content:"";position:absolute;inset:0;
+      background: linear-gradient(180deg, rgba(5,5,8,.12), rgba(5,5,8,.55));
+      pointer-events:none;
+    }
+
+    .heroGrid{display:grid;grid-template-columns:1.25fr .75fr;gap:18px;align-items:stretch;margin-top:18px}
+    .kicker{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:8px 12px;border-radius:999px;border:1px solid var(--border);
+      background: rgba(255,255,255,.03);color: var(--muted);font-weight:900;width:fit-content
+    }
+    .title{margin:14px 0 10px;font-size: clamp(24px, 3.6vw, 44px);line-height:1.18;font-weight:950;letter-spacing:.2px}
+    .accent{position:relative;padding:0 .15em;color: var(--text)}
+    .accent:after{
+      content:"";position:absolute;left:0;right:0;bottom:.08em;height:.30em;
+      background: linear-gradient(90deg, rgba(34,211,238,.0), rgba(34,211,238,.65), rgba(225,29,72,.65), rgba(34,211,238,.0));
+      border-radius:999px;z-index:-1;
+    }
+    .lead{color: var(--muted);font-size:16px;line-height:1.9;margin:0;max-width:820px}
+    .ctas{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+    .btn{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:12px 16px;border-radius:14px;text-decoration:none;font-weight:950;letter-spacing:.2px;
+      border:1px solid var(--border);background: rgba(255,255,255,.04);
+      cursor:pointer;transition:.2s;
+    }
+    .btn:hover{transform: translateY(-2px);border-color: rgba(225,29,72,.32);background: rgba(255,255,255,.06)}
+    .btnPrimary{
+      background: linear-gradient(90deg, var(--red), var(--red2));
+      border-color: rgba(225,29,72,.35);
+      box-shadow: 0 18px 40px rgba(225,29,72,.20);
+    }
+
+    .badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .badge{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:10px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);color: var(--muted);font-weight:900
+    }
+
+    .glass{
+      border-radius: 20px;border: 1px solid rgba(255,255,255,.12);
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+      box-shadow: var(--shadow);padding:16px;position:relative;overflow:hidden
+    }
+    .glass:before{
+      content:"";position:absolute;inset:-2px;
+      background: radial-gradient(420px 160px at 40% 0%, rgba(225,29,72,.20), transparent 60%);
+      opacity:.9;pointer-events:none
+    }
+    .glass h3{margin:0 0 8px;font-weight:950}
+    .list{margin:0;padding:0;list-style:none;color:var(--muted);line-height:1.95;font-weight:800}
+    .list li{display:flex;gap:10px;align-items:flex-start;margin:8px 0}
+    .list i{color:#fff;opacity:.9;margin-top:4px}
+
+    .miniStats{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .stat{border:1px solid rgba(255,255,255,.10);background: rgba(255,255,255,.03);border-radius:18px;padding:12px 14px;min-width:160px}
+    .statTitle{color:var(--muted);font-weight:900}
+    .statValue{font-weight:950;font-size:20px;margin-top:4px}
+
+    /* Sections */
+    .section{padding:56px 0}
+    .secHead{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap}
+    .secTitle{margin:0;font-size: clamp(20px, 2.8vw, 34px);font-weight:950}
+    .secDesc{margin:6px 0 0;color:var(--muted);line-height:1.9;font-weight:800;max-width:760px}
+
+    /* Why us */
+    .grid4{display:grid;grid-template-columns: repeat(12, 1fr);gap:14px;margin-top:20px}
+    .card{
+      grid-column: span 3;border-radius: var(--radius);
+      border:1px solid rgba(225,29,72,.22);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.04));
+      box-shadow: var(--shadow);padding:18px 16px;transition:.25s;
+    }
+    .card:hover{transform: translateY(-6px);border-color: rgba(225,29,72,.55);box-shadow: var(--shadow2)}
+    .ico{
+      width:44px;height:44px;border-radius:14px;display:grid;place-items:center;
+      background: rgba(225,29,72,.12);border:1px solid rgba(225,29,72,.35);
+      box-shadow: 0 10px 26px rgba(225,29,72,.12);margin-bottom:10px
+    }
+    .ico i{font-size:18px;color:#fff;text-shadow: 0 0 18px rgba(255,45,85,.35)}
+    .card h4{margin:6px 0 6px;font-size:18px;font-weight:950}
+    .card p{margin:0;color:var(--muted);line-height:1.9;font-weight:800;font-size:14.5px}
+
+    /* Products tools */
+    .tools{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:12px}
+    .searchBox{
+      display:flex;align-items:center;gap:10px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      padding:10px 12px;border-radius:14px;min-width:260px
+    }
+    .searchBox input{border:0;outline:none;background:transparent;color:var(--text);font-weight:800;width:100%}
+    .filters{display:flex;gap:8px;flex-wrap:wrap}
+    .fbtn{
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.03);
+      color:var(--text);font-weight:900;
+      padding:10px 12px;border-radius:999px;
+      cursor:pointer;transition:.2s;
+    }
+    .fbtn:hover{border-color: rgba(34,211,238,.35)}
+    .fbtn.active{border-color: rgba(225,29,72,.55);background: rgba(225,29,72,.14)}
+
+    /* Products */
+    .productsGrid{display:grid;grid-template-columns: repeat(12, 1fr);gap:14px;margin-top:20px}
+    .prod{
+      grid-column: span 4;border-radius:20px;
+      border:1px solid rgba(225,29,72,.28);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.04));
+      box-shadow: var(--shadow);overflow:hidden;transition:.25s;
+    }
+    .prod:hover{transform: translateY(-6px);border-color: rgba(225,29,72,.7);box-shadow: var(--shadow2)}
+    .prodTop{padding:16px 16px 10px}
+    .prodTitle{margin:0;font-size:18px;font-weight:950}
+    .prodSub{margin:6px 0 0;color:var(--muted);font-weight:900;line-height:1.7;font-size:14px}
+    .price{
+      display:inline-flex;align-items:center;gap:8px;margin-top:10px;
+      padding:8px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.03);color:var(--muted);font-weight:900;font-size:13px
+    }
+
+    /* 8 صور - شكل احترافي */
+    .gallery{display:grid;grid-template-columns: repeat(4, 1fr);gap:8px;padding: 0 16px 16px}
+    .shot{
+      border-radius:14px;overflow:hidden;
+      border:1px solid rgba(225,29,72,.28);
+      background: rgba(0,0,0,.25);
+      aspect-ratio: 1/1;
+      cursor:pointer;
+    }
+    .shot img{width:100%;height:100%;object-fit:cover;display:block;transition:.25s}
+    .shot:hover img{transform: scale(1.04)}
+    .prodActions{display:flex;gap:10px;flex-wrap:wrap;padding:0 16px 16px}
+    .addBtn{
+      flex:1;border:1px solid rgba(34,211,238,.25);
+      background: rgba(34,211,238,.10);
+      color:var(--text);font-weight:950;padding:12px 12px;border-radius:14px;cursor:pointer
+    }
+    .addBtn:hover{border-color: rgba(34,211,238,.45)}
+    .openBtn{
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      color:var(--text);
+      font-weight:950;padding:12px 12px;border-radius:14px;
+      text-decoration:none;display:inline-flex;align-items:center;gap:8px
+    }
+
+    /* Reviews */
+    .reviewsGrid{display:grid;grid-template-columns: repeat(12, 1fr);gap:14px;margin-top:20px}
+    .review{
+      grid-column: span 4;border-radius:20px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      box-shadow: var(--shadow);padding:16px;
+    }
+    .rTop{display:flex;gap:12px;align-items:center}
+    .avatar{width:44px;height:44px;border-radius:14px;overflow:hidden;border:1px solid rgba(225,29,72,.28)}
+    .avatar img{width:100%;height:100%;object-fit:cover}
+    .rName{font-weight:950}
+    .rStars{color: rgba(34,211,238,.9);font-weight:900}
+    .rText{margin:10px 0 0;color:var(--muted);line-height:1.9;font-weight:850}
+
+    /* Contact */
+    .contactBox{margin-top:22px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .contactCard{
+      border-radius:20px;border:1px solid rgba(255,255,255,.12);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.04));
+      box-shadow: var(--shadow);padding:16px;
+    }
+    .contactRow{display:flex;align-items:center;gap:10px;color:var(--muted);font-weight:900;line-height:1.9;margin:10px 0}
+    .contactRow i{color:#fff;opacity:.95}
+    .socials{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+    .soc{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:10px 12px;border-radius:14px;text-decoration:none;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      font-weight:950;transition:.2s;
+    }
+    .soc:hover{transform: translateY(-2px);border-color: rgba(225,29,72,.35);background: rgba(255,255,255,.06)}
+    .boxTitle{margin:0 0 10px;font-weight:950}
+
+    /* Floating buttons */
+    .float{position:fixed;right:16px;bottom:16px;display:flex;flex-direction:column;gap:10px;z-index:80}
+    .fab{
+      width:52px;height:52px;border-radius:16px;display:grid;place-items:center;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      box-shadow: var(--shadow);
+      text-decoration:none;transition:.2s;
+    }
+    .fab:hover{transform: translateY(-2px);border-color: rgba(225,29,72,.35);background: rgba(255,255,255,.08)}
+    .fab.red{background: linear-gradient(135deg, var(--red), var(--red2));border-color: rgba(225,29,72,.35)}
+    .fab i{font-size:18px;color:#fff}
+    .toTop{display:none}
+    .toTop.show{display:grid}
+
+    /* Footer */
+    footer{border-top:1px solid rgba(255,255,255,.08);padding:18px 0;color: var(--muted);font-weight:900;background: rgba(255,255,255,.02)}
+    .footRow{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center}
+
+    /* Lightbox */
+    .lightbox{position:fixed;inset:0;background: rgba(0,0,0,.82);backdrop-filter: blur(10px);display:none;place-items:center;z-index:200;padding:16px}
+    .lightbox.show{display:grid}
+    .lbImg{max-width:min(980px, 92vw);max-height:82vh;border-radius:18px;border:1px solid rgba(255,255,255,.12);box-shadow: var(--shadow2)}
+    .lbClose{position:fixed;top:14px;right:14px;border:1px solid rgba(255,255,255,.12);background: rgba(255,255,255,.08);color:#fff;border-radius:14px;width:44px;height:44px;display:grid;place-items:center;cursor:pointer}
+    .lbNav{position:fixed;top:50%;transform:translateY(-50%);border:1px solid rgba(255,255,255,.12);background: rgba(255,255,255,.08);color:#fff;border-radius:14px;width:44px;height:44px;display:grid;place-items:center;cursor:pointer}
+    .lbPrev{left:14px}
+    .lbNext{right:14px}
+
+    /* Cart Drawer */
+    .drawer{position:fixed;inset:0;background: rgba(0,0,0,.55);display:none;justify-content:flex-end;z-index:220}
+    .drawer.show{display:flex}
+    .drawerCard{width:min(420px, 92vw);height:100%;background: rgba(10,10,14,.94);border-left:1px solid rgba(255,255,255,.10);box-shadow: var(--shadow2);display:flex;flex-direction:column}
+    .drawerHead{display:flex;justify-content:space-between;align-items:center;padding:14px;border-bottom:1px solid rgba(255,255,255,.08)}
+    .drawerTitle{font-weight:950}
+    .dClose{border:1px solid rgba(255,255,255,.12);background: rgba(255,255,255,.08);color:#fff;border-radius:14px;width:40px;height:40px;display:grid;place-items:center;cursor:pointer}
+    .drawerBody{padding:14px;overflow:auto}
+    .cartItems{display:grid;gap:10px}
+    .cartItem{border:1px solid rgba(255,255,255,.10);background: rgba(255,255,255,.04);border-radius:18px;padding:10px;display:grid;grid-template-columns:56px 1fr;gap:10px}
+    .cartItem img{width:56px;height:56px;border-radius:14px;object-fit:cover;border:1px solid rgba(225,29,72,.25)}
+    .ciTitle{font-weight:950}
+    .ciMeta{color:var(--muted);font-weight:900;font-size:13px}
+    .qty{display:flex;gap:8px;align-items:center;margin-top:8px}
+    .qb{width:34px;height:34px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background: rgba(255,255,255,.06);color:#fff;font-weight:950;cursor:pointer}
+    .qv{min-width:26px;text-align:center;font-weight:950}
+    .cartFoot{margin-top:12px;border-top:1px solid rgba(255,255,255,.08);padding-top:12px}
+    .totalRow{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-weight:950}
+    .cartActions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+    .btnDanger{border:1px solid rgba(225,29,72,.35);background: rgba(225,29,72,.12);color:#fff;font-weight:950;padding:12px;border-radius:14px;cursor:pointer}
+    .btnPrimary2{border:1px solid rgba(34,211,238,.25);background: rgba(34,211,238,.14);color:#fff;font-weight:950;padding:12px;border-radius:14px;cursor:pointer}
+    .note{color:var(--muted);font-weight:850;margin-top:10px;line-height:1.7}
+
+    /* Responsive */
+    @media (max-width: 1024px){
+      .heroGrid{grid-template-columns:1fr}
+      .card{grid-column: span 6}
+      .prod{grid-column: span 6}
+      .review{grid-column: span 6}
+      .contactBox{grid-template-columns:1fr}
+    }
+    @media (max-width: 620px){
+      .actions{justify-content:flex-start}
+      .brand{min-width:auto}
+      .card{grid-column: span 12}
+      .prod{grid-column: span 12}
+      .review{grid-column: span 12}
+      .gallery{grid-template-columns: repeat(4, 1fr)}
+    }
+  </style>
 </head>
 
-<body class="pageBg">
-  <!-- TOPBAR -->
+<body>
   <header class="topbar">
     <div class="wrap topbarIn">
       <div class="brand">
@@ -33,18 +390,18 @@
           <button data-lang="tr">TR</button>
         </div>
 
-        <a class="pill" id="salesTop" href="tel:01126773698">
+        <a class="pill" href="tel:01126773698">
           <i class="fa-solid fa-phone"></i>
           <span data-i18n="sales">المبيعات</span>: 01126773698
         </a>
 
-        <div class="pill" style="gap:10px;">
+        <button class="pill pillCart" id="openCartBtn" type="button">
           <i class="fa-solid fa-cart-shopping"></i>
           <span data-i18n="cart">السلة</span>
-          <span id="cartCountTop">0</span>
-        </div>
+          <span class="cartCount" id="cartCount">0</span>
+        </button>
 
-        <a class="pill pillAccent" id="waTop" href="#" target="_blank" rel="noopener">
+        <a class="pill pillRed" href="https://wa.me/201126773698" target="_blank" rel="noopener">
           <i class="fa-brands fa-whatsapp"></i>
           <span data-i18n="whatsApp">واتساب</span>
         </a>
@@ -52,7 +409,6 @@
     </div>
   </header>
 
-  <!-- HERO -->
   <section class="hero" id="home">
     <div class="wrap">
       <div class="heroBanner">
@@ -67,8 +423,8 @@
           </span>
 
           <h1 class="title">
-            <span data-i18n="heroTitle">فول سوداني</span>
-            <span class="grad" data-i18n="heroTitle2">بمواصفات مصانع</span>
+            <span data-i18n="heroTitle1">فول سوداني</span>
+            <span class="accent" data-i18n="heroTitle2">بمواصفات مصانع</span>
             <span data-i18n="heroTitle3">— جودة مضمونة</span>
           </h1>
 
@@ -89,41 +445,40 @@
           </div>
 
           <div class="badges">
-            <div class="badge"><i class="fa-solid fa-location-dot"></i><span id="addrBadge">أبورواش – الجيزة – مصر</span></div>
+            <div class="badge"><i class="fa-solid fa-location-dot"></i><span data-i18n="location">أبورواش – الجيزة – مصر</span></div>
             <div class="badge"><i class="fa-solid fa-truck-fast"></i><span data-i18n="delivery">سرعة توصيل</span></div>
             <div class="badge"><i class="fa-solid fa-file-export"></i><span data-i18n="export">تصدير لأي مكان في العالم</span></div>
           </div>
 
-          <div class="stats">
+          <div class="miniStats">
             <div class="stat">
-              <div class="t" data-i18n="visits">عداد الزوار</div>
-              <div class="n" id="visitCount">—</div>
+              <div class="statTitle" data-i18n="visitors">عداد الزوار</div>
+              <div class="statValue" id="visitCount">—</div>
             </div>
             <div class="stat">
-              <div class="t" data-i18n="statsProducts">منتجات</div>
-              <div class="n">6+</div>
+              <div class="statTitle" data-i18n="productsStat">منتجات</div>
+              <div class="statValue">6+</div>
             </div>
             <div class="stat">
-              <div class="t" data-i18n="statsSupport">تواصل</div>
-              <div class="n" data-i18n="statsSupportVal">24/7</div>
+              <div class="statTitle" data-i18n="support">تواصل</div>
+              <div class="statValue">24/7</div>
             </div>
           </div>
         </div>
 
-        <aside class="glass">
+        <aside class="glass" aria-label="Quick info">
           <h3 data-i18n="quickTitle">التعبئة والتجهيز</h3>
           <ul class="list">
-            <li>✅ <span data-i18n="pack1">شكاير 50 كجم و25 كجم</span></li>
-            <li>✅ <span data-i18n="pack2">فاكيوم عبوات داخل كرتونة 10 كجم</span></li>
-            <li>✅ <span data-i18n="pack3">تجهيز حسب طلب العميل</span></li>
-            <li>ℹ️ <span data-i18n="priceNote">السعر عند الطلب</span></li>
+            <li><i class="fa-solid fa-check"></i><span data-i18n="pack1">شكاير 50 كجم و25 كجم</span></li>
+            <li><i class="fa-solid fa-check"></i><span data-i18n="pack2">فاكيوم عبوات داخل كرتونة 10 كجم</span></li>
+            <li><i class="fa-solid fa-check"></i><span data-i18n="pack3">تجهيز حسب طلب العميل</span></li>
+            <li><i class="fa-solid fa-check"></i><span data-i18n="priceNote">السعر عند الطلب</span></li>
           </ul>
         </aside>
       </div>
     </div>
   </section>
 
-  <!-- WHY US -->
   <section class="section" id="why">
     <div class="wrap">
       <div class="secHead">
@@ -139,19 +494,16 @@
           <h4 data-i18n="w1t">خبرة طويلة</h4>
           <p data-i18n="w1d">خبرة كبيرة في تجارة وتصنيع الفول السوداني والمفروك والتعامل مع المصانع والشركات.</p>
         </article>
-
         <article class="card">
           <div class="ico"><i class="fa-solid fa-shield-check"></i></div>
           <h4 data-i18n="w2t">جودة مضمونة</h4>
           <p data-i18n="w2d">فرز وتجهيز وتعبئة بمعايير دقيقة لضمان منتج نظيف ومطابق للمواصفات.</p>
         </article>
-
         <article class="card">
           <div class="ico"><i class="fa-solid fa-tags"></i></div>
           <h4 data-i18n="w3t">أسعار تنافسية</h4>
           <p data-i18n="w3d">أفضل قيمة مقابل الجودة مع مرونة في الكميات والتعاقدات (السعر عند الطلب).</p>
         </article>
-
         <article class="card">
           <div class="ico"><i class="fa-solid fa-truck-fast"></i></div>
           <h4 data-i18n="w4t">سرعة توصيل</h4>
@@ -161,29 +513,28 @@
     </div>
   </section>
 
-  <!-- PRODUCTS -->
   <section class="section" id="products">
     <div class="wrap">
       <div class="secHead">
         <div>
           <h2 class="secTitle" data-i18n="prodTitle">المنتجات</h2>
-          <p class="secDesc" data-i18n="prodDesc">تصفح المنتجات بالبحث والفلترة — اضغط على أي صورة للتكبير.</p>
-        </div>
-      </div>
-
-      <div class="tools">
-        <div class="search">
-          <i class="fa-solid fa-magnifying-glass"></i>
-          <input id="searchInput" type="text" placeholder="ابحث داخل المنتجات…" data-i18n-placeholder="searchPh" />
+          <p class="secDesc" data-i18n="prodDesc">ابحث وفلتر… واضغط على أي صورة للتكبير.</p>
         </div>
 
-        <div class="filter">
-          <div class="chip active" data-cat="all" data-i18n="filterAll">الكل</div>
-          <div class="chip" data-cat="shell" data-i18n="filterShell">بقشرة</div>
-          <div class="chip" data-cat="shelled" data-i18n="filterShelled">مقشر</div>
-          <div class="chip" data-cat="halawany" data-i18n="filterHalawany">حلواني</div>
-          <div class="chip" data-cat="crushed" data-i18n="filterCrushed">مجروش</div>
-          <div class="chip" data-cat="manufacturing" data-i18n="filterMan">تصنيع</div>
+        <div class="tools">
+          <div class="searchBox">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input id="searchInput" type="search" placeholder="بحث فوري…" />
+          </div>
+
+          <div class="filters" id="filters">
+            <button class="fbtn active" data-filter="all" type="button" data-i18n="fAll">الكل</button>
+            <button class="fbtn" data-filter="shell" type="button" data-i18n="fShell">بقشرة</button>
+            <button class="fbtn" data-filter="shelled" type="button" data-i18n="fShelled">مقشر</button>
+            <button class="fbtn" data-filter="confection" type="button" data-i18n="fConfection">حلواني</button>
+            <button class="fbtn" data-filter="crushed" type="button" data-i18n="fCrushed">مجروش</button>
+            <button class="fbtn" data-filter="industry" type="button" data-i18n="fIndustry">تصنيع</button>
+          </div>
         </div>
       </div>
 
@@ -191,7 +542,6 @@
     </div>
   </section>
 
-  <!-- REVIEWS -->
   <section class="section" id="reviews">
     <div class="wrap">
       <div class="secHead">
@@ -201,45 +551,10 @@
         </div>
       </div>
 
-      <div class="reviewsGrid">
-        <div class="review">
-          <div class="rTop">
-            <div class="avatar"><img alt="avatar" src="https://i.pravatar.cc/80?img=12"></div>
-            <div>
-              <div class="rName">محمد</div>
-              <div class="rTxt">تعامل محترم وجودة ممتازة وتسليم في الميعاد.</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="review">
-          <div class="rTop">
-            <div class="avatar"><img alt="avatar" src="https://i.pravatar.cc/80?img=32"></div>
-            <div>
-              <div class="rName">أحمد</div>
-              <div class="rTxt">تغليف فاكيوم ممتاز وخامة نظيفة جدًا.</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="review">
-          <div class="rTop">
-            <div class="avatar"><img alt="avatar" src="https://i.pravatar.cc/80?img=7"></div>
-            <div>
-              <div class="rName">سارة</div>
-              <div class="rTxt">أسعار كويسة مقابل الجودة، وخدمة سريعة.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <p style="color:rgba(243,244,246,.65);font-weight:800;margin-top:14px">
-        * (هذه أمثلة لعرض قسم آراء العملاء بشكل احترافي ويمكن تعديلها لاحقًا)
-      </p>
+      <div class="reviewsGrid" id="reviewsGrid"></div>
     </div>
   </section>
 
-  <!-- CONTACT -->
   <section class="section" id="contact">
     <div class="wrap">
       <div class="secHead">
@@ -252,41 +567,34 @@
       <div class="contactBox">
         <div class="contactCard">
           <div class="contactRow"><i class="fa-solid fa-building"></i><span data-i18n="brandName">شركة طرح بلدنا للمحاصيل الزراعية</span></div>
-          <div class="contactRow"><i class="fa-solid fa-industry"></i><span data-i18n="brandSub">أبويوسف للتجارة والتصنيع</span></div>
-
-          <div class="contactRow"><i class="fa-solid fa-phone"></i><span data-i18n="sales">المبيعات</span>:
-            <a id="salesBottom" href="tel:01126773698">01126773698</a>
-          </div>
-
-          <div class="contactRow"><i class="fa-solid fa-phone"></i><span data-i18n="contact">تواصل</span>:
-            <a id="contactBottom" href="tel:01020508423">01020508423</a>
-          </div>
-
-          <div class="contactRow"><i class="fa-solid fa-envelope"></i><span data-i18n="email">البريد</span>: tarhbladna@gmail.com</div>
-          <div class="contactRow"><i class="fa-solid fa-location-dot"></i><span id="addr2">أبورواش – الجيزة – مصر</span></div>
+          <div class="contactRow"><i class="fa-solid fa-user-tie"></i><span data-i18n="brandSub">أبويوسف للتجارة والتصنيع</span></div>
+          <div class="contactRow"><i class="fa-solid fa-phone"></i><span data-i18n="sales">المبيعات</span>: <a href="tel:01126773698">01126773698</a></div>
+          <div class="contactRow"><i class="fa-solid fa-phone"></i><span data-i18n="contactPhone2">تواصل</span>: <a href="tel:01020508423">01020508423</a></div>
+          <div class="contactRow"><i class="fa-solid fa-envelope"></i> <a href="mailto:tarhbladna@gmail.com">tarhbladna@gmail.com</a></div>
+          <div class="contactRow"><i class="fa-solid fa-location-dot"></i><span data-i18n="location">أبورواش – الجيزة – مصر</span></div>
           <div class="contactRow"><i class="fa-solid fa-circle-info"></i><span data-i18n="priceNote">السعر عند الطلب</span></div>
 
           <div class="socials">
-            <a class="soc" id="waBtn" href="#" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
-            <a class="soc" id="fbBtn" href="#" target="_blank" rel="noopener"><i class="fa-brands fa-facebook"></i> Facebook</a>
-            <a class="soc" id="igBtn" href="#" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i> Instagram</a>
-            <a class="soc" id="msBtn" href="#" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-messenger"></i> Messenger</a>
+            <a class="soc" href="https://wa.me/201126773698" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+            <a class="soc" href="https://www.facebook.com/share/14b1DZ65PCg/" target="_blank" rel="noopener"><i class="fa-brands fa-facebook"></i> Facebook</a>
+            <a class="soc" href="https://www.instagram.com/efyos820?igsh=MXhxam40dGpweW12ag==" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i> Instagram</a>
+            <a class="soc" href="https://m.me/" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-messenger"></i> Messenger</a>
           </div>
         </div>
 
         <div class="contactCard">
-          <h3 style="margin:0 0 10px;font-weight:1000" data-i18n="services">خدماتنا</h3>
-          <div class="contactRow">✅ <span data-i18n="s1">تصنيع • تجهيز • توريد</span></div>
-          <div class="contactRow">✅ <span data-i18n="s2">توريد لجميع محافظات مصر</span></div>
-          <div class="contactRow">✅ <span data-i18n="s3">تصدير لأي مكان في العالم</span></div>
-          <div class="contactRow">✅ <span data-i18n="s4">شكاير 50/25 كجم + فاكيوم 10 كجم</span></div>
+          <h3 class="boxTitle" data-i18n="serviceTitle">خدماتنا</h3>
+          <div class="contactRow"><i class="fa-solid fa-check"></i><span data-i18n="s1">تصنيع • تجهيز • توريد</span></div>
+          <div class="contactRow"><i class="fa-solid fa-check"></i><span data-i18n="s2">توريد لجميع محافظات مصر</span></div>
+          <div class="contactRow"><i class="fa-solid fa-check"></i><span data-i18n="s3">تصدير لأي مكان في العالم</span></div>
+          <div class="contactRow"><i class="fa-solid fa-check"></i><span data-i18n="s4">شكاير 50/25 كجم + فاكيوم 10 كجم</span></div>
 
           <div class="ctas" style="margin-top:12px">
-            <a class="btn btnPrimary" href="#" id="waOrderBtn" onclick="document.getElementById('openCartBtn').click();return false;">
-              <i class="fa-solid fa-cart-shopping"></i> <span data-i18n="cart">السلة</span>
+            <a class="btn btnPrimary" href="https://wa.me/201126773698" target="_blank" rel="noopener">
+              <i class="fa-brands fa-whatsapp"></i><span data-i18n="ctaQuote">اطلب عرض سعر</span>
             </a>
             <a class="btn" href="tel:01126773698">
-              <i class="fa-solid fa-phone"></i> <span data-i18n="sales">المبيعات</span>
+              <i class="fa-solid fa-phone"></i><span data-i18n="ctaCall">اتصال بالمبيعات</span>
             </a>
           </div>
         </div>
@@ -294,63 +602,583 @@
     </div>
   </section>
 
-  <!-- Floating Buttons -->
   <div class="float" aria-label="Floating actions">
-    <a class="fab accent" href="https://wa.me/201126773698" target="_blank" rel="noopener" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+    <a class="fab red" href="https://wa.me/201126773698" target="_blank" rel="noopener" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
     <a class="fab" href="tel:01126773698" title="Call"><i class="fa-solid fa-phone"></i></a>
-    <a class="fab" id="emailFab" href="mailto:tarhbladna@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
-    <a class="fab" id="msFab" href="#" target="_blank" rel="noopener" title="Messenger"><i class="fa-brands fa-facebook-messenger"></i></a>
+    <a class="fab" href="mailto:tarhbladna@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
     <a class="fab toTop" id="toTop" href="#home" title="Top"><i class="fa-solid fa-arrow-up"></i></a>
   </div>
 
-  <!-- Cart Floating -->
-  <div class="cartFab">
-    <button id="openCartBtn" type="button">
-      🛒 <span data-i18n="cart">السلة</span> <span id="cartCount">0</span>
-    </button>
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lbClose" id="lbClose" type="button" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+    <button class="lbNav lbPrev" id="lbPrev" type="button" aria-label="Prev"><i class="fa-solid fa-chevron-left"></i></button>
+    <img class="lbImg" id="lbImg" alt="preview" />
+    <button class="lbNav lbNext" id="lbNext" type="button" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
   </div>
 
-  <!-- Drawer -->
-  <div class="drawerBackdrop" id="drawerBackdrop"></div>
-  <aside class="drawer" id="drawer" aria-label="Cart drawer">
-    <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;">
-      <h3 data-i18n="cart" style="margin:0;">السلة</h3>
-      <button id="closeDrawer" type="button" style="cursor:pointer;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.06);color:#fff;font-weight:1000;padding:8px 10px;">✕</button>
-    </div>
+  <!-- Cart Drawer -->
+  <div class="drawer" id="cartDrawer" aria-hidden="true">
+    <div class="drawerCard">
+      <div class="drawerHead">
+        <div class="drawerTitle" data-i18n="cart">السلة</div>
+        <button class="dClose" id="closeCartBtn" type="button" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+      </div>
 
-    <div style="margin-top:10px;color:rgba(243,244,246,.75);font-weight:900">
-      <span data-i18n="total">الإجمالي</span>: <span id="cartTotal">0</span>
-    </div>
+      <div class="drawerBody">
+        <div id="cartItems" class="cartItems"></div>
 
-    <div id="cartList"></div>
+        <div class="cartFoot">
+          <div class="totalRow">
+            <span data-i18n="total">الإجمالي</span>
+            <strong id="cartTotal">0</strong>
+          </div>
 
-    <div class="cartFooter">
-      <button type="button" id="clearCartBtn" data-i18n="empty">تفريغ السلة</button>
-      <button type="button" class="primary" id="sendCartBtn" data-i18n="send">إرسال الطلب</button>
-    </div>
+          <div class="cartActions">
+            <button class="btnDanger" id="clearCartBtn" type="button" data-i18n="clearCart">تفريغ السلة</button>
+            <button class="btnPrimary2" id="sendCartBtn" type="button" data-i18n="sendOrder">إرسال الطلب</button>
+          </div>
 
-    <p style="color:rgba(243,244,246,.65);font-weight:850;margin-top:10px" data-i18n="sendNote">
-      إرسال الطلب يتم على واتساب برسالة جاهزة.
-    </p>
-  </aside>
-
-  <!-- Lightbox -->
-  <div class="lightbox" id="lightbox">
-    <button class="lightboxClose" id="lightboxClose" type="button">✕</button>
-    <div class="lightboxInner">
-      <img id="lightboxImg" alt="preview" />
+          <div class="note" data-i18n="sendNote">إرسال الطلب يتم على واتساب برسالة جاهزة.</div>
+        </div>
+      </div>
     </div>
   </div>
 
   <footer>
     <div class="wrap">
-      <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center">
+      <div class="footRow">
         <div>© <span id="year"></span> <span data-i18n="brandName">شركة طرح بلدنا للمحاصيل الزراعية</span></div>
-        <div><span data-i18n="footer">تصنيع • تجهيز • توريد • تصدير | السعر عند الطلب</span></div>
+        <div><span data-i18n="footerNote">تصنيع • تجهيز • توريد • تصدير | السعر عند الطلب</span></div>
       </div>
     </div>
   </footer>
 
-  <script src="assets/js/app.js"></script>
+  <script>
+    // ---------- CONFIG ----------
+    const WHATSAPP_NUMBER = "201126773698"; // بدون +
+    const SALES_PHONE = "01126773698";
+    const CONTACT_PHONE = "01020508423";
+    const EMAIL = "tarhbladna@gmail.com";
+
+    const PRODUCTS_BASE = "products";
+    const IMAGES_PER_PRODUCT = 8;
+
+    // ---------- Data ----------
+    const PRODUCTS = [
+      { id:"p1", tag:"shell",      ar:"فول بقشره",                 en:"Peanuts in Shell",              tr:"Kabuklu Yer Fıstığı",       descAr:"مناسب للتحميص والتعبئة والتصدير." },
+      { id:"p2", tag:"shelled",    ar:"فول مقشر",                   en:"Shelled Peanuts",               tr:"Kabuksuz Yer Fıstığı",      descAr:"جاهز للتصنيع أو التعبئة." },
+      { id:"p3", tag:"confection", ar:"فول حلواني",                 en:"Confectionery Peanuts",         tr:"Şekerleme Tipi Fıstık",     descAr:"مخصص للحلويات والمنتجات الغذائية عالية الجودة." },
+      { id:"p4", tag:"crushed",    ar:"فول مجروش",                  en:"Crushed Peanuts",               tr:"Kırık Yer Fıstığı",         descAr:"مناسب للحلويات والطعوم والتغطية." },
+      { id:"p5", tag:"industry",   ar:"فول لشغل الطعوم والشيكولاتة", en:"For Coating & Chocolate",     tr:"Çikolata & Kaplama İçin",   descAr:"مثالي للمصانع المتخصصة في الطعوم والشيكولاتة." },
+      { id:"p6", tag:"industry",   ar:"فول بيور لعمل زبدة الفول",     en:"For Peanut Butter (Pure)",    tr:"Fıstık Ezmesi İçin Saf",    descAr:"جودة نقية 100% مناسبة لإنتاج زبدة الفول السوداني." },
+    ];
+
+    const REVIEWS = [
+      { name:"عميل مصنع",   stars:5, text:"جودة ممتازة وفرز نظيف والتزام بالمواعيد. تعامل راقٍ وخدمة محترمة.", avatar:"https://i.pravatar.cc/120?img=12" },
+      { name:"عميل تصدير",  stars:5, text:"تجهيز سريع وتعبئة ممتازة. خامة ثابتة ومواصفات ممتازة للشحن.",       avatar:"https://i.pravatar.cc/120?img=32" },
+      { name:"محل مكسرات",  stars:5, text:"سعر كويس مقابل الجودة، وتسليم سريع. أنصح بالتعامل.",                avatar:"https://i.pravatar.cc/120?img=8"  },
+      { name:"فندق",        stars:5, text:"توريد منتظم وجودة ثابتة. التغليف ممتاز.",                           avatar:"https://i.pravatar.cc/120?img=22" },
+      { name:"عطّار",       stars:5, text:"مقشر نظيف وطعم ممتاز. شغل محترم.",                                   avatar:"https://i.pravatar.cc/120?img=16" },
+      { name:"شركة أغذية",  stars:5, text:"مطابق للمواصفات والتعبئة ممتازة. تواصل سريع ودقة.",                  avatar:"https://i.pravatar.cc/120?img=44" },
+    ];
+
+    // ---------- i18n ----------
+    const I18N = {
+      ar: {
+        brandName:"شركة طرح بلدنا للمحاصيل الزراعية",
+        brandSub:"أبويوسف للتجارة والتصنيع",
+        sales:"المبيعات",
+        whatsApp:"واتساب",
+        cart:"السلة",
+        total:"الإجمالي",
+        clearCart:"تفريغ السلة",
+        sendOrder:"إرسال الطلب",
+        sendNote:"إرسال الطلب يتم على واتساب برسالة جاهزة.",
+        kicker:"توريد محلي • تصدير عالمي",
+        heroTitle1:"فول سوداني",
+        heroTitle2:"بمواصفات مصانع",
+        heroTitle3:"— جودة مضمونة",
+        heroDesc:"تصنيع وتجهيز وتوريد شكاير 50/25 كجم، وعبوات فاكيوم داخل كرتونة 10 كجم. توريد لجميع محافظات مصر وتصدير لأي مكان في العالم. السعر عند الطلب.",
+        ctaProducts:"شاهد المنتجات",
+        ctaQuick:"تواصل سريع",
+        location:"أبورواش – الجيزة – مصر",
+        delivery:"سرعة توصيل",
+        export:"تصدير لأي مكان في العالم",
+        quickTitle:"التعبئة والتجهيز",
+        pack1:"شكاير 50 كجم و25 كجم",
+        pack2:"فاكيوم عبوات داخل كرتونة 10 كجم",
+        pack3:"تجهيز حسب طلب العميل",
+        priceNote:"السعر عند الطلب",
+        whyTitle:"لماذا نحن؟",
+        whyDesc:"خبرة وجودة وتسعير وتوصيل… بمعايير شركات كبيرة لخدمة السوق المحلي والتصدير.",
+        w1t:"خبرة طويلة", w1d:"خبرة كبيرة في تجارة وتصنيع الفول السوداني والمفروك والتعامل مع المصانع والشركات.",
+        w2t:"جودة مضمونة", w2d:"فرز وتجهيز وتعبئة بمعايير دقيقة لضمان منتج نظيف ومطابق للمواصفات.",
+        w3t:"أسعار تنافسية", w3d:"أفضل قيمة مقابل الجودة مع مرونة في الكميات والتعاقدات (السعر عند الطلب).",
+        w4t:"سرعة توصيل", w4d:"التزام بمواعيد التسليم داخل مصر وتجهيز سريع لطلبات التصدير لأي مكان في العالم.",
+        prodTitle:"المنتجات",
+        prodDesc:"ابحث وفلتر… واضغط على أي صورة للتكبير.",
+        fAll:"الكل", fShell:"بقشرة", fShelled:"مقشر", fConfection:"حلواني", fCrushed:"مجروش", fIndustry:"تصنيع",
+        reviewsTitle:"آراء العملاء",
+        reviewsDesc:"شكرًا لعملائنا على الثقة — دي بعض الآراء بعد التعامل مع شركة طرح بلدنا.",
+        contactTitle:"التواصل",
+        contactDesc:"للطلبات المحلية والتصدير — السعر عند الطلب.",
+        contactPhone2:"تواصل",
+        serviceTitle:"خدماتنا",
+        s1:"تصنيع • تجهيز • توريد",
+        s2:"توريد لجميع محافظات مصر",
+        s3:"تصدير لأي مكان في العالم",
+        s4:"شكاير 50/25 كجم + فاكيوم 10 كجم",
+        footerNote:"تصنيع • تجهيز • توريد • تصدير | السعر عند الطلب",
+        visitors:"عداد الزوار",
+        productsStat:"منتجات",
+        support:"تواصل",
+        addToCart:"إضافة للسلة",
+        view:"عرض"
+      },
+      en: {
+        brandName:"Tarh Bledna Agricultural Crops Company",
+        brandSub:"Abu Youssef – Trading & Manufacturing",
+        sales:"Sales",
+        whatsApp:"WhatsApp",
+        cart:"Cart",
+        total:"Total",
+        clearCart:"Clear cart",
+        sendOrder:"Send order",
+        sendNote:"Order is sent to WhatsApp as a pre-filled message.",
+        kicker:"Local Supply • Worldwide Export",
+        heroTitle1:"Premium Peanuts",
+        heroTitle2:"Factory-Grade Specs",
+        heroTitle3:"— Guaranteed Quality",
+        heroDesc:"Processing & packing 50/25 kg bags and vacuum packs in 10 kg cartons. Delivery across Egypt and worldwide export. Price upon request.",
+        ctaProducts:"View products",
+        ctaQuick:"Quick contact",
+        location:"Abu Rawash – Giza – Egypt",
+        delivery:"Fast delivery",
+        export:"Worldwide export",
+        quickTitle:"Packaging & Processing",
+        pack1:"50 kg & 25 kg bags",
+        pack2:"Vacuum packs in 10 kg cartons",
+        pack3:"Custom packaging upon request",
+        priceNote:"Price upon request",
+        whyTitle:"Why Choose Us?",
+        whyDesc:"Experience, quality, competitive pricing, and reliable delivery.",
+        w1t:"Long Experience", w1d:"Extensive experience in peanut processing and trading for factories and companies.",
+        w2t:"Guaranteed Quality", w2d:"Strict sorting, processing, and packaging standards for premium-grade products.",
+        w3t:"Competitive Prices", w3d:"Best value with flexible quantities and contracts (price upon request).",
+        w4t:"Fast Delivery", w4d:"On-time delivery across Egypt and fast export readiness worldwide.",
+        prodTitle:"Products",
+        prodDesc:"Search & filter… click any image to zoom.",
+        fAll:"All", fShell:"In Shell", fShelled:"Shelled", fConfection:"Confection", fCrushed:"Crushed", fIndustry:"Industry",
+        reviewsTitle:"Customer Reviews",
+        reviewsDesc:"Thanks for your trust — here are some reviews after dealing with Tarh Bledna.",
+        contactTitle:"Contact",
+        contactDesc:"For local orders & export — price upon request.",
+        contactPhone2:"Contact",
+        serviceTitle:"Services",
+        s1:"Processing • Packaging • Supply",
+        s2:"Delivery across Egypt governorates",
+        s3:"Worldwide export",
+        s4:"50/25 kg bags + 10 kg vacuum cartons",
+        footerNote:"Processing • Packaging • Supply • Export | Price upon request",
+        visitors:"Visitors",
+        productsStat:"Products",
+        support:"Support",
+        addToCart:"Add to cart",
+        view:"View"
+      },
+      tr: {
+        brandName:"Tarh Bledna Tarımsal Ürünler Şirketi",
+        brandSub:"Abu Youssef – Ticaret & Üretim",
+        sales:"Satış",
+        whatsApp:"WhatsApp",
+        cart:"Sepet",
+        total:"Toplam",
+        clearCart:"Sepeti boşalt",
+        sendOrder:"Siparişi gönder",
+        sendNote:"Sipariş WhatsApp üzerinden hazır mesaj olarak gönderilir.",
+        kicker:"Yerli Tedarik • Dünya Çapında İhracat",
+        heroTitle1:"Kaliteli Yer Fıstığı",
+        heroTitle2:"Fabrika Standartlarında",
+        heroTitle3:"— Garantili Kalite",
+        heroDesc:"50/25 kg çuvallar ve 10 kg kolide vakumlu ambalaj. Mısır geneli teslimat ve dünya çapında ihracat. Fiyat teklifi ile.",
+        ctaProducts:"Ürünleri Gör",
+        ctaQuick:"Hızlı iletişim",
+        location:"Abu Rawash – Giza – Mısır",
+        delivery:"Hızlı Teslimat",
+        export:"Dünya Çapında İhracat",
+        quickTitle:"Ambalaj & İşleme",
+        pack1:"50 kg & 25 kg çuvallar",
+        pack2:"10 kg kolide vakumlu ambalaj",
+        pack3:"Talebe göre ambalaj",
+        priceNote:"Fiyat teklifi ile",
+        whyTitle:"Neden Biz?",
+        whyDesc:"Tecrübe, kalite, rekabetçi fiyat ve güvenilir teslimat.",
+        w1t:"Uzun Tecrübe", w1d:"Fabrika ve şirketlere yönelik yer fıstığı işleme ve ticarette güçlü tecrübe.",
+        w2t:"Garantili Kalite", w2d:"Sıkı eleme, işleme ve paketleme standartları.",
+        w3t:"Rekabetçi Fiyat", w3d:"Esnek miktar ve anlaşmalarla en iyi değer (fiyat teklifi ile).",
+        w4t:"Hızlı Teslimat", w4d:"Mısır içinde zamanında teslimat ve hızlı ihracata hazırlık.",
+        prodTitle:"Ürünler",
+        prodDesc:"Ara & filtrele… herhangi bir görsele tıkla.",
+        fAll:"Tümü", fShell:"Kabuklu", fShelled:"Kabuksuz", fConfection:"Şekerleme", fCrushed:"Kırık", fIndustry:"Üretim",
+        reviewsTitle:"Müşteri Yorumları",
+        reviewsDesc:"Güveniniz için teşekkürler — Tarh Bledna ile çalıştıktan sonra bazı yorumlar.",
+        contactTitle:"İletişim",
+        contactDesc:"Yerli sipariş ve ihracat için — fiyat teklifi ile.",
+        contactPhone2:"İletişim",
+        serviceTitle:"Hizmetler",
+        s1:"İşleme • Ambalaj • Tedarik",
+        s2:"Mısır geneli teslimat",
+        s3:"Dünya çapında ihracat",
+        s4:"50/25 kg çuval + 10 kg vakum kolisi",
+        footerNote:"İşleme • Ambalaj • Tedarik • İhracat | Fiyat teklifi ile",
+        visitors:"Ziyaretçi",
+        productsStat:"Ürün",
+        support:"Destek",
+        addToCart:"Sepete ekle",
+        view:"Gör"
+      }
+    };
+
+    // ---------- Helpers ----------
+    const $ = (s, p=document) => p.querySelector(s);
+    const $$ = (s, p=document) => Array.from(p.querySelectorAll(s));
+    const normalize = (str)=> (str||"").toString().trim().toLowerCase();
+    const stars = (n)=> "★".repeat(n) + "☆".repeat(Math.max(0, 5-n));
+
+    function productImages(pid){
+      const arr = [];
+      for(let i=1;i<=IMAGES_PER_PRODUCT;i++){
+        // لو الصورة مش موجودة هيرجع banner.png كبديل
+        arr.push(`${PRODUCTS_BASE}/${pid}/${i}.jpg`);
+      }
+      return arr;
+    }
+
+    // ---------- Visitors Counter (Local) ----------
+    function visitsInit(){
+      const key = "tarehbaldna_visits";
+      const dayKey = "tarehbaldna_visits_day";
+      const d = new Date();
+      const today = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
+
+      const lastDay = localStorage.getItem(dayKey);
+      if(lastDay !== today){
+        localStorage.setItem(dayKey, today);
+        const v = parseInt(localStorage.getItem(key)||"0",10);
+        localStorage.setItem(key, String(v+1));
+      }
+      const show = parseInt(localStorage.getItem(key)||"0",10);
+      $("#visitCount").textContent = show.toLocaleString();
+    }
+
+    // ---------- Render Reviews ----------
+    function renderReviews(lang="ar"){
+      const grid = $("#reviewsGrid");
+      if(!grid) return;
+      grid.innerHTML = REVIEWS.map(r=>`
+        <article class="review">
+          <div class="rTop">
+            <div class="avatar"><img src="${r.avatar}" alt="${r.name}" loading="lazy"></div>
+            <div>
+              <div class="rName">${r.name}</div>
+              <div class="rStars">${stars(r.stars)}</div>
+            </div>
+          </div>
+          <p class="rText">${r.text}</p>
+        </article>
+      `).join("");
+    }
+
+    // ---------- Lightbox ----------
+    let LB = { list:[], idx:0 };
+    function bindLightbox(){
+      $$(".shot").forEach(el=>{
+        el.addEventListener("click", ()=>{
+          const pid = el.dataset.lb;
+          const idx = parseInt(el.dataset.idx,10);
+          LB.list = productImages(pid);
+          LB.idx = idx;
+          openLB();
+        });
+      });
+    }
+    function openLB(){
+      const box = $("#lightbox");
+      const img = $("#lbImg");
+      if(!box || !img) return;
+      img.src = LB.list[LB.idx];
+      box.classList.add("show");
+      box.setAttribute("aria-hidden","false");
+    }
+    function closeLB(){
+      const box = $("#lightbox");
+      if(!box) return;
+      box.classList.remove("show");
+      box.setAttribute("aria-hidden","true");
+    }
+    function nextLB(step){
+      if(!LB.list.length) return;
+      LB.idx = (LB.idx + step + LB.list.length) % LB.list.length;
+      $("#lbImg").src = LB.list[LB.idx];
+    }
+
+    // ---------- Cart ----------
+    const CART_KEY = "tarehbaldna_cart";
+    function loadCart(){ try{ return JSON.parse(localStorage.getItem(CART_KEY)||"[]"); }catch{ return []; } }
+    function saveCart(items){ localStorage.setItem(CART_KEY, JSON.stringify(items)); updateCartBadge(); }
+    function updateCartBadge(){
+      const items = loadCart();
+      const count = items.reduce((s,x)=>s+(x.qty||0),0);
+      $("#cartCount").textContent = count;
+    }
+    function addToCart(pid){
+      const items = loadCart();
+      const found = items.find(x=>x.id===pid);
+      if(found) found.qty += 1;
+      else items.push({id:pid, qty:1});
+      saveCart(items);
+    }
+    function setQty(pid, qty){
+      const items = loadCart().map(x=> x.id===pid ? ({...x, qty}) : x).filter(x=>x.qty>0);
+      saveCart(items);
+      renderCart();
+    }
+    function clearCart(){
+      saveCart([]);
+      renderCart();
+    }
+    function cartTotal(){
+      const items = loadCart();
+      return items.reduce((s,x)=>s+(x.qty||0),0);
+    }
+    function renderCart(){
+      const box = $("#cartItems");
+      const totalEl = $("#cartTotal");
+      if(!box || !totalEl) return;
+
+      const items = loadCart();
+      if(items.length===0){
+        box.innerHTML = `<div style="color:rgba(243,244,246,.72);font-weight:900">السلة فارغة</div>`;
+        totalEl.textContent = "0";
+        updateCartBadge();
+        return;
+      }
+
+      box.innerHTML = items.map(it=>{
+        const p = PRODUCTS.find(x=>x.id===it.id);
+        const title = p?.ar || it.id;
+        const thumb = `${PRODUCTS_BASE}/${it.id}/1.jpg`;
+        return `
+          <div class="cartItem">
+            <img src="${thumb}" alt="${title}" onerror="this.onerror=null;this.src='banner.png';" />
+            <div>
+              <div class="ciTitle">${title}</div>
+              <div class="ciMeta">السعر عند الطلب</div>
+              <div class="qty">
+                <button class="qb" data-minus="${it.id}" type="button">−</button>
+                <div class="qv">${it.qty}</div>
+                <button class="qb" data-plus="${it.id}" type="button">+</button>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join("");
+
+      totalEl.textContent = cartTotal().toLocaleString();
+
+      $$("[data-plus]").forEach(b=>{
+        b.addEventListener("click", ()=> {
+          const pid = b.dataset.plus;
+          const it = loadCart().find(x=>x.id===pid);
+          setQty(pid, (it?.qty||0)+1);
+        });
+      });
+      $$("[data-minus]").forEach(b=>{
+        b.addEventListener("click", ()=> {
+          const pid = b.dataset.minus;
+          const it = loadCart().find(x=>x.id===pid);
+          setQty(pid, Math.max(0,(it?.qty||0)-1));
+        });
+      });
+
+      updateCartBadge();
+    }
+    function openCart(){
+      const d = $("#cartDrawer");
+      d.classList.add("show");
+      d.setAttribute("aria-hidden","false");
+      renderCart();
+    }
+    function closeCart(){
+      const d = $("#cartDrawer");
+      d.classList.remove("show");
+      d.setAttribute("aria-hidden","true");
+    }
+    function sendOrderWhatsApp(){
+      const items = loadCart();
+      if(items.length===0) return;
+
+      const lines = [];
+      lines.push("طلب جديد — شركة طرح بلدنا (أبويوسف للتجارة والتصنيع)");
+      lines.push(`المبيعات: ${SALES_PHONE}`);
+      lines.push(`تواصل: ${CONTACT_PHONE}`);
+      lines.push(`البريد: ${EMAIL}`);
+      lines.push("—");
+      items.forEach(it=>{
+        const p = PRODUCTS.find(x=>x.id===it.id);
+        lines.push(`${p?.ar || it.id} — كمية: ${it.qty}`);
+      });
+      lines.push("—");
+      lines.push("السعر: عند الطلب");
+
+      const msg = encodeURIComponent(lines.join("\n"));
+      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, "_blank");
+    }
+
+    // ---------- Render Products ----------
+    function renderProducts(lang="ar"){
+      const grid = $("#productsGrid");
+      const q = normalize($("#searchInput")?.value);
+      const activeFilter = $("#filters .active")?.dataset?.filter || "all";
+      const dict = I18N[lang] || I18N.ar;
+
+      const items = PRODUCTS.filter(p=>{
+        const name = normalize(p[lang] || p.ar);
+        const okSearch = !q || name.includes(q);
+        const okFilter = (activeFilter==="all") || (p.tag===activeFilter);
+        return okSearch && okFilter;
+      });
+
+      grid.innerHTML = items.map(p=>{
+        const name = p[lang] || p.ar;
+        const desc = (lang==="ar") ? p.descAr : (lang==="en" ? "Price upon request. Export-ready & factory grade." : "Fiyat teklifi ile. İhracata uygun.");
+        const imgs = productImages(p.id);
+
+        const shots = imgs.map((src, idx)=>`
+          <div class="shot" data-lb="${p.id}" data-idx="${idx}">
+            <img src="${src}" alt="${p.id}-${idx+1}" loading="lazy"
+                 onerror="this.onerror=null;this.src='banner.png';" />
+          </div>
+        `).join("");
+
+        return `
+          <article class="prod" data-product="${p.id}">
+            <div class="prodTop">
+              <h3 class="prodTitle">${name}</h3>
+              <p class="prodSub">${desc}</p>
+              <span class="price"><i class="fa-solid fa-circle-info"></i> ${dict.priceNote}</span>
+            </div>
+
+            <div class="gallery">${shots}</div>
+
+            <div class="prodActions">
+              <button class="addBtn" type="button" data-add="${p.id}">
+                <i class="fa-solid fa-plus"></i> ${dict.addToCart}
+              </button>
+              <a class="openBtn" href="#contact">
+                <i class="fa-solid fa-message"></i> ${dict.view}
+              </a>
+            </div>
+          </article>
+        `;
+      }).join("");
+
+      // bind image zoom
+      bindLightbox();
+
+      // bind add-to-cart
+      $$("[data-add]").forEach(b=>{
+        b.addEventListener("click", ()=> addToCart(b.dataset.add));
+      });
+    }
+
+    // ---------- Language ----------
+    let currentLang = "ar";
+    function applyLang(lang){
+      currentLang = lang;
+      const isRTL = (lang === "ar");
+      document.documentElement.lang = lang;
+      document.documentElement.dir = isRTL ? "rtl" : "ltr";
+      document.body.style.fontFamily = isRTL
+        ? '"Cairo","Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif'
+        : '"Inter","Cairo",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif';
+
+      const dict = I18N[lang] || I18N.ar;
+      $$("[data-i18n]").forEach(el=>{
+        const key = el.getAttribute("data-i18n");
+        if(dict[key]) el.textContent = dict[key];
+      });
+
+      const s = $("#searchInput");
+      if(s){
+        s.placeholder = (lang==="ar") ? "بحث فوري…" : (lang==="en" ? "Instant search…" : "Anında ara…");
+      }
+
+      $$(".lang button").forEach(b=>{
+        b.classList.toggle("active", b.getAttribute("data-lang") === lang);
+      });
+
+      renderProducts(lang);
+      renderReviews(lang);
+    }
+
+    // ---------- Init ----------
+    function init(){
+      $("#year").textContent = new Date().getFullYear();
+
+      // language switch
+      $$(".lang button").forEach(btn=>{
+        btn.addEventListener("click", ()=> applyLang(btn.getAttribute("data-lang")));
+      });
+
+      // search
+      $("#searchInput")?.addEventListener("input", ()=> renderProducts(currentLang));
+
+      // filters
+      $$("#filters .fbtn").forEach(b=>{
+        b.addEventListener("click", ()=>{
+          $$("#filters .fbtn").forEach(x=>x.classList.remove("active"));
+          b.classList.add("active");
+          renderProducts(currentLang);
+        });
+      });
+
+      // lightbox controls
+      $("#lbClose")?.addEventListener("click", closeLB);
+      $("#lightbox")?.addEventListener("click", (e)=>{ if(e.target.id==="lightbox") closeLB(); });
+      $("#lbNext")?.addEventListener("click", ()=> nextLB(+1));
+      $("#lbPrev")?.addEventListener("click", ()=> nextLB(-1));
+      window.addEventListener("keydown",(e)=>{
+        if(!$("#lightbox")?.classList.contains("show")) return;
+        if(e.key==="Escape") closeLB();
+        if(e.key==="ArrowRight") nextLB(+1);
+        if(e.key==="ArrowLeft") nextLB(-1);
+      });
+
+      // cart
+      $("#openCartBtn")?.addEventListener("click", openCart);
+      $("#closeCartBtn")?.addEventListener("click", closeCart);
+      $("#cartDrawer")?.addEventListener("click",(e)=>{ if(e.target.id==="cartDrawer") closeCart(); });
+      $("#clearCartBtn")?.addEventListener("click", clearCart);
+      $("#sendCartBtn")?.addEventListener("click", sendOrderWhatsApp);
+      updateCartBadge();
+
+      // toTop
+      const toTop = $("#toTop");
+      window.addEventListener("scroll", ()=>{
+        if(window.scrollY > 700) toTop.classList.add("show");
+        else toTop.classList.remove("show");
+      });
+
+      // visitors
+      visitsInit();
+
+      // render
+      applyLang("ar");
+    }
+
+    document.addEventListener("DOMContentLoaded", init);
+  </script>
 </body>
 </html>
